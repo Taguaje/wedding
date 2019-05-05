@@ -1,0 +1,71 @@
+
+#info{
+    background-image: url("/static/invitation/jpg/bg-img-1.jpg");
+    background-position: center;
+    background-color: transparent;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#info:before{
+    content:'';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 0;
+}
+
+.wrapper{
+   z-index: 1;
+    position: relative;
+}
+
+.all-title{
+    font-size: 75px;
+    color: white;
+    font-family: "Marck Script";
+    padding-top: 150px;
+}
+.all-title span{
+    color: #ecafaa
+}
+
+.countdown-title{
+    font-size: 26px;
+    color: white;
+    font-family: "Comfortaa";
+    font-weight: 800;
+}
+
+.container {
+    text-align: center;
+}
+
+.my-clock {
+    display: inline-block;
+    width: auto;
+}
+
+.title-date{
+    font-size: 26px;
+    padding: 0;
+    color: white;
+    font-family: "Poppins";
+    font-weight: 800;
+    padding-top: 10px;
+}
+
+span.swirl-left {
+    display: inline-block;
+    background: url("/static/invitation/jpg/swirl-left.png") no-repeat left;
+    padding: 0 0 0 130px;
+}
+
+span.swirl-right {
+    display: inline-block;
+    background: url("/static/invitation/jpg/swirl-right.png") no-repeat right;
+    padding: 10px 130px 10px 0px;
+}

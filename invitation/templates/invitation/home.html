@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Свадьба Влада и Даши</title>
+    <link rel="stylesheet" href="{% static "invitation/css/flipclock.css" %}">
+    <link rel="stylesheet" href="{% static "invitation/css/main.css" %}">
+    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.css" %}">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Marck+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CClicker+Script" rel="stylesheet" type="text/css">
+    <script src="{% static "invitation/js/jquery-3.4.1.min.js" %}"></script>
+    <script src="{% static "invitation/js/flipclock.js" %}"></script>
+    <script src="{% static "bootstrap/js/bootstrap.js" %}"></script>
+</head>
+<body>
+<div id="info" class="col-md-12 text-center page-info col-transform min-vh-100 container-fluid">
+    <div class="wrapper">
+        <div class="all-title">Влад <span>&</span> Даша</div>
+        <div class="countdown-title">До дня свадьбы осталось</div>
+        <div class="clock-container">
+            <div class="my-clock"></div>
+        </div>
+        <div class="title-date">
+            <span class="swirl-left"><span class="swirl-right">02<span>.</span>08<span>.</span>2019</span></span>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    var clock;
+    $(document).ready(function() {
+        // Grab the current date
+        var currentDate = new Date();
+        // Set some date in the past. In this case, it's always been since Jan 1
+        var futureDate  = new Date(2019, 7, 2, 16, 0, 0);
+        // Calculate the difference in seconds between the future and current date
+        var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
+        // Instantiate a coutdown FlipClock
+        clock = $('.my-clock').FlipClock(diff, {
+            clockFace: 'DailyCounter',
+            language:'ru-ru',
+        });
+    });
+</script>
+</html>
