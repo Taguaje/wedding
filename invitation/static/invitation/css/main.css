@@ -5,6 +5,7 @@
     background-color: transparent;
     background-size: cover;
     background-repeat: no-repeat;
+    max-width: 100%;
 }
 
 #info:before{
@@ -24,7 +25,7 @@
 }
 
 .all-title{
-    font-size: 75px;
+    font-size: calc(3em + 1vw);
     color: white;
     font-family: "Marck Script";
     padding-top: 150px;
@@ -34,7 +35,7 @@
 }
 
 .countdown-title{
-    font-size: 26px;
+    font-size: calc(1em + 1vw);
     color: white;
     font-family: "Comfortaa";
     font-weight: 800;
@@ -47,10 +48,11 @@
 .my-clock {
     display: inline-block;
     width: auto;
+    max-width: 100%;
 }
 
 .title-date{
-    font-size: 26px;
+    font-size: calc(1em + 1vw);
     padding: 0;
     color: white;
     font-family: "Poppins";
@@ -69,3 +71,190 @@ span.swirl-right {
     background: url("/static/invitation/jpg/swirl-right.png") no-repeat right;
     padding: 10px 130px 10px 0px;
 }
+
+.mask{
+    position: absolute;
+    bottom: -5px;
+    left: 0px;
+}
+
+.mask img{
+    max-width: 100%;
+}
+
+.love-story{
+    background: url("/static/invitation/jpg/seamless.png");
+    padding-top: 50px;
+    font-family: "Caveat";
+}
+
+.love-story img{
+    border-radius: 50%;
+}
+
+.title {
+    font-size: 2.75rem;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 1400px) {
+    .flip-clock-wrapper ul {
+        margin: 2px;
+    }
+}
+@media only screen and (max-height: 820px)  {
+	.countHours:after,
+	.countDays:after,
+	.countMinutes:after,
+	.countSeconds:after {
+		top: 72px;
+	}
+	.countdownHolder {
+		font-size: 65px;
+		margin-bottom: 0;
+	}
+}
+
+@media only screen and (max-height: 700px)  {
+	.countHours:after, .countDays:after, .countMinutes:after, .countSeconds:after {
+		top: 63px;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+
+    .countDiv {
+        height: 30px;
+        margin-right: 18px;
+        margin-left: 18px;
+    }
+
+    .countdownHolder {
+        font-size: 45px;
+    }
+
+    .flip-clock-wrapper ul {
+        width: 50px;
+        height: 70px;
+    }
+
+    .flip-clock-divider.days .flip-clock-label {
+        right: -103px;
+    }
+
+    .flip-clock-divider .flip-clock-label {
+        bottom: 0.2em;
+        right: -86px;
+    }
+
+    .flip-clock-wrapper ul li a div.up:after {
+        top: 33px;
+    }
+
+    .flip-clock-wrapper ul li {
+        line-height: 71px;
+    }
+
+    .flip-clock-wrapper {
+        max-width: 601px;
+    }
+}
+
+    @media only screen and (max-width: 620px) {
+
+        .flip-clock-wrapper ul {
+	    width: 40px;
+	    height: 70px;
+	    margin: 2px;
+    }
+    .flip-clock-divider.days .flip-clock-label {
+    	right: -80px;
+	}
+	.flip-clock-divider .flip-clock-label {
+	    bottom: 0.2em;
+	    right: -86px;
+	}
+	.flip-clock-wrapper ul li a div.up:after {
+    	top: 33px;
+	}
+	.flip-clock-wrapper ul li {
+    	line-height: 71px;
+	}
+	.flip-clock-wrapper {
+    	max-width: 461px;
+	}
+	.flip-clock-wrapper ul li a div div.inn {
+    	font-size: 52px;
+	}
+	.flip-clock-divider.hours .flip-clock-label {
+    	right: -60px;
+	}
+	.flip-clock-divider.seconds .flip-clock-label {
+    	right: -65px;
+	}
+	.flip-clock-dot.top {
+    	top: 20px;
+	}
+	.flip-clock-dot.bottom {
+    	bottom: 48px;
+	}
+	.flip-clock-divider.minutes .flip-clock-label {
+    	right: -62px;
+	}
+    }
+
+@media only screen and (max-width: 510px) {
+	.flip-clock-wrapper ul {
+	    width: 26px;
+	    height: 40px;
+	    margin: 1px;
+	    padding: 0;
+    }
+    .flip-clock-divider.days .flip-clock-label {
+    	right: -56px;
+	}
+	.flip-clock-divider .flip-clock-label {
+	    bottom: 0.2em;
+	    right: -86px;
+	}
+	.flip-clock-wrapper ul li a div.up:after {
+    	top: 18px;
+	}
+	.flip-clock-wrapper ul li {
+    	line-height: 39px;
+	}
+	.flip-clock-wrapper {
+    	max-width: 361px;
+	}
+	.flip-clock-wrapper ul li a div div.inn {
+    	font-size: 32px;
+	}
+	.flip-clock-divider.hours .flip-clock-label {
+    	right: -45px;
+	}
+	.flip-clock-divider.seconds .flip-clock-label {
+    	right: -47px;
+	}
+	.flip-clock-dot.top {
+    	top: 13px;
+    	width: 4px;
+    	height: 4px;
+	}
+	.flip-clock-dot.bottom {
+    	bottom: 30px;
+    	width: 4px;
+    	height: 4px;
+	}
+	.flip-clock-divider.minutes .flip-clock-label {
+    	right: -47px;
+	}
+	.flip-clock-divider{
+    	width: 13px;
+    	height: 60px;
+	}
+}
+
+
+
+

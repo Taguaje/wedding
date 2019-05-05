@@ -3,6 +3,7 @@
 <head>
     {% load static %}
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Свадьба Влада и Даши</title>
     <link rel="stylesheet" href="{% static "invitation/css/flipclock.css" %}">
     <link rel="stylesheet" href="{% static "invitation/css/main.css" %}">
@@ -10,6 +11,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Comfortaa|Marck+Script" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CClicker+Script" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Caveat|Source+Sans+Pro&amp;subset=cyrillic" rel="stylesheet">
     <script src="{% static "invitation/js/jquery-3.4.1.min.js" %}"></script>
     <script src="{% static "invitation/js/flipclock.js" %}"></script>
     <script src="{% static "bootstrap/js/bootstrap.js" %}"></script>
@@ -26,6 +28,26 @@
             <span class="swirl-left"><span class="swirl-right">02<span>.</span>08<span>.</span>2019</span></span>
         </div>
     </div>
+    <div class="mask">
+        <img src="{% static "invitation/jpg/mask.png" %}">
+    </div>
+</div>
+<div id="lovestory" class="love-story container-fluid">
+    <div class="row">
+        <div class="col-md-4 col-sm-12 p-5">
+            <h1 class="title">Влад</h1>
+            <img src="{% static "invitation/jpg/vlad_new.jpg" %}" class="img-fluid rounded-circle">
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <img src="{% static "invitation/jpg/story-flowers.png" %}" class="img-fluid m-auto">
+            <h1 class="title">Love Story</h1>
+        </div>
+        <div class="col-md-4 col-sm-12 p-5">
+            <h1 class="title">Даша</h1>
+            <img src="{% static "invitation/jpg/dasha_new.jpg" %}" class="img-fluid rounded-circle">
+        </div>
+    </div>
+    <div>Lorem imsup</div>
 </div>
 </body>
 <script type="text/javascript">

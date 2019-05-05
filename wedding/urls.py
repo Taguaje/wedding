@@ -18,5 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('invite', include('invitation.urls')),
+    path('', include('invitation.urls')),
     path('admin/', admin.site.urls),
 ]
