@@ -1,0 +1,157 @@
+
+@media only screen and (max-width: 1400px) {
+    .flip-clock-wrapper ul {
+        margin: 2px;
+    }
+}
+@media only screen and (max-height: 820px)  {
+	.countHours:after,
+	.countDays:after,
+	.countMinutes:after,
+	.countSeconds:after {
+		top: 72px;
+	}
+	.countdownHolder {
+		font-size: 65px;
+		margin-bottom: 0;
+	}
+}
+
+@media only screen and (max-height: 700px)  {
+	.countHours:after, .countDays:after, .countMinutes:after, .countSeconds:after {
+		top: 63px;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+
+    .countDiv {
+        height: 30px;
+        margin-right: 18px;
+        margin-left: 18px;
+    }
+
+    .countdownHolder {
+        font-size: 45px;
+    }
+
+    .flip-clock-wrapper ul {
+        width: 50px;
+        height: 70px;
+    }
+
+    .flip-clock-divider.days .flip-clock-label {
+        right: -103px;
+    }
+
+    .flip-clock-divider .flip-clock-label {
+        bottom: 0.2em;
+        right: -86px;
+    }
+
+    .flip-clock-wrapper ul li a div.up:after {
+        top: 33px;
+    }
+
+    .flip-clock-wrapper ul li {
+        line-height: 71px;
+    }
+
+    .flip-clock-wrapper {
+        max-width: 601px;
+    }
+}
+
+    @media only screen and (max-width: 620px) {
+
+        .flip-clock-wrapper ul {
+	    width: 40px;
+	    height: 70px;
+	    margin: 2px;
+    }
+    .flip-clock-divider.days .flip-clock-label {
+    	right: -80px;
+	}
+	.flip-clock-divider .flip-clock-label {
+	    bottom: 0.2em;
+	    right: -86px;
+	}
+	.flip-clock-wrapper ul li a div.up:after {
+    	top: 33px;
+	}
+	.flip-clock-wrapper ul li {
+    	line-height: 71px;
+	}
+	.flip-clock-wrapper {
+    	max-width: 461px;
+	}
+	.flip-clock-wrapper ul li a div div.inn {
+    	font-size: 52px;
+	}
+	.flip-clock-divider.hours .flip-clock-label {
+    	right: -60px;
+	}
+	.flip-clock-divider.seconds .flip-clock-label {
+    	right: -65px;
+	}
+	.flip-clock-dot.top {
+    	top: 20px;
+	}
+	.flip-clock-dot.bottom {
+    	bottom: 48px;
+	}
+	.flip-clock-divider.minutes .flip-clock-label {
+    	right: -62px;
+	}
+    }
+
+@media only screen and (max-width: 510px) {
+	.flip-clock-wrapper ul {
+	    width: 26px;
+	    height: 40px;
+	    margin: 1px;
+	    padding: 0;
+    }
+    .flip-clock-divider.days .flip-clock-label {
+    	right: -56px;
+	}
+	.flip-clock-divider .flip-clock-label {
+	    bottom: 0.2em;
+	    right: -86px;
+	}
+	.flip-clock-wrapper ul li a div.up:after {
+    	top: 18px;
+	}
+	.flip-clock-wrapper ul li {
+    	line-height: 39px;
+	}
+	.flip-clock-wrapper {
+    	max-width: 361px;
+	}
+	.flip-clock-wrapper ul li a div div.inn {
+    	font-size: 32px;
+	}
+	.flip-clock-divider.hours .flip-clock-label {
+    	right: -45px;
+	}
+	.flip-clock-divider.seconds .flip-clock-label {
+    	right: -47px;
+	}
+	.flip-clock-dot.top {
+    	top: 13px;
+    	width: 4px;
+    	height: 4px;
+	}
+	.flip-clock-dot.bottom {
+    	bottom: 30px;
+    	width: 4px;
+    	height: 4px;
+	}
+	.flip-clock-divider.minutes .flip-clock-label {
+    	right: -47px;
+	}
+	.flip-clock-divider{
+    	width: 13px;
+    	height: 60px;
+	}
+}

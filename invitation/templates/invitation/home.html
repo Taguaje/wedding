@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Свадьба Влада и Даши</title>
     <link rel="stylesheet" href="{% static "invitation/css/flipclock.css" %}">
+    <link rel="stylesheet" href="{% static "invitation/css/flipclock-resposive.css" %}">
     <link rel="stylesheet" href="{% static "invitation/css/main.css" %}">
+    <link rel="stylesheet" href="{% static "invitation/css/navbar.css" %}">
     <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.css" %}">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Comfortaa|Marck+Script" rel="stylesheet">
@@ -16,16 +18,38 @@
     <script src="{% static "invitation/js/flipclock.js" %}"></script>
     <script src="{% static "bootstrap/js/bootstrap.js" %}"></script>
 </head>
-<body>
-<div id="info" class="col-md-12 text-center page-info col-transform min-vh-100 container-fluid">
+<body data-spy="scroll" data-target="#navbarSupportedContent">
+<div id="info" class="col-md-12 text-center page-info col-transform min-vh-100 container-fluid p-0">
+    <nav id="menu" class="navbar navbar-expand navbar-dark text-white fixed-top pb-0">
+
+            <ul class="navbar-nav mx-auto" id="navbarSupportedContent">
+                <li class="nav-item">
+                    <a class="nav-link" href="#info">ГЛАВНАЯ <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#lovestory">НАША ИСТОРИЯ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">КОГДА/ГДЕ/КАК</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">МЕНЮ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">ФОТО</a>
+                </li>
+            </ul>
+
+    </nav>
     <div class="wrapper">
         <div class="all-title">Влад <span>&</span> Даша</div>
+        <div class="invitation-text">будут рады видеть вас на свадьбе!</div>
+        <div class="title-date">
+            <span class="swirl-left"><span class="swirl-right">02<span>.</span>08<span>.</span>2019</span></span>
+        </div>
         <div class="countdown-title">До дня свадьбы осталось</div>
         <div class="clock-container">
             <div class="my-clock"></div>
-        </div>
-        <div class="title-date">
-            <span class="swirl-left"><span class="swirl-right">02<span>.</span>08<span>.</span>2019</span></span>
         </div>
     </div>
     <div class="mask">
@@ -64,6 +88,18 @@
             clockFace: 'DailyCounter',
             language:'ru-ru',
         });
+
+        $("#menu").on("click","a", function (event) {
+            //отменяем стандартную обработку нажатия по ссылке
+            event.preventDefault();
+            //забираем идентификатор бока с атрибута href
+            var id  = $(this).attr('href'),
+                //узнаем высоту от начала страницы до блока на который ссылается якорь
+                top = $(id).offset().top;
+            //анимируем переход на расстояние - top за 1500 мс
+            $('body,html').animate({scrollTop: top}, 800);
+
+    });
     });
 </script>
 </html>
