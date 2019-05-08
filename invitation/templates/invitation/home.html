@@ -98,8 +98,19 @@
                 top = $(id).offset().top;
             //анимируем переход на расстояние - top за 1500 мс
             $('body,html').animate({scrollTop: top}, 800);
+        });
 
-    });
+        var winScrollTop = 0;
+        $(window).on('scroll', function() {
+            var nav = $('#menu');
+            var top = 200;
+            if ($(window).scrollTop() >= top) {
+                nav.addClass('onscroll');
+            } else {
+                nav.removeClass('onscroll');
+            }
+            winScrollTop = $(this).scrollTop();
+        });
     });
 </script>
 </html>
