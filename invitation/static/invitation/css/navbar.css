@@ -1,9 +1,12 @@
 .nav-link{
     position: relative;
-    padding: 10px;
     font-family: "Comfortaa";
+    bottom: 0;
 }
 
+body{
+    min-width: 300px;
+}
 .nav-item .nav-link.active{
     color: #fbbdc2 !important;
 
@@ -48,4 +51,8 @@
     position: absolute;
     right: 0;
     top: 45%;
+}
+
+.nav-link.last:after {
+    display: none;
 }
