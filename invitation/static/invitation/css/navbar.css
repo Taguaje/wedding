@@ -28,7 +28,7 @@ body{
 .nav-item{
     padding: 0px;
 }
-.nav-link.active:before, .nav-link:hover:before {
+.nav-link.active:before{
     content: '';
     width: 90%;
     height: 3px;
@@ -39,6 +39,21 @@ body{
     left: 50%;
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
+}
+
+@media (pointer: fine) {
+.nav-link:hover:before {
+    content: '';
+    width: 90%;
+    height: 3px;
+    background: #fbbdc2;
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
 }
 
 .nav-link:after {
