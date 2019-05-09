@@ -23,6 +23,7 @@
 .wrapper{
    z-index: 1;
     position: relative;
+    min-height: 100vh;
 }
 
 .all-title{
@@ -73,7 +74,7 @@ span.swirl-right {
 }
 
 .mask{
-    position: relative;
+    position: absolute;
     bottom: -5px;
     left: 0px;
 }
