@@ -81,23 +81,45 @@ span.swirl-right {
     left: 0px;
 }
 
-.mask img{
+.mask-inside{
+    position: absolute;
+    bottom: -30px;
+    left: -150px;
+    max-width: 100%;
+    background-size: cover;
+}
+
+.mask img, .mask-inside img{
     max-width: 100%;
 }
 
+.how-png{
+    max-width: 80%;
+}
+
+.how-text{
+    font-family: "Comfortaa";
+    font-size: calc(0.5em + 1vw);
+    word-wrap: break-word;
+}
 .love-story{
     background: url("/static/invitation/jpg/seamless.png");
     padding-top: 50px;
     font-family: "Caveat";
+    position: relative;
+    max-width: 100%;
 }
 
+.flower-where{
+    max-width: 300px;
+    padding-top: 30px;
+}
 .love-story img{
     border-radius: 50%;
 }
 
 .title {
     font-size: 2.75rem;
-    margin-bottom: 40px;
     text-align: center;
 }
 
@@ -106,6 +128,14 @@ span.swirl-right {
 	color: white;
 	font-size: calc(1em + 1vw);
 }
+
+.how-where {
+    background: url("/static/invitation/jpg/seamless_new.png");
+    position: relative;
+    font-family: "Caveat";
+}
+
+
 
 
 @media only screen and (max-width: 480px) {

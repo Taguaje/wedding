@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{% static "invitation/css/main.css" %}">
     <link rel="stylesheet" href="{% static "invitation/css/navbar.css" %}">
     <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.css" %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Comfortaa|Marck+Script" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CClicker+Script" rel="stylesheet" type="text/css">
@@ -30,7 +31,7 @@
                     <a class="nav-link pr-2 p-1 p-sm-2" href="#lovestory">НАША ИСТОРИЯ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link pr-2 p-1 p-sm-2" href="#">КОГДА/ГДЕ/КАК</a>
+                    <a class="nav-link pr-2 p-1 p-sm-2" href="#how-where">КОГДА/ГДЕ/КАК</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link pr-2 p-1 p-sm-2" href="#">МЕНЮ</a>
@@ -56,7 +57,7 @@
         </div>
     </div>
 </div>
-<div id="lovestory" class="love-story container-fluid">
+<div id="lovestory" class="love-story container-fluid pb-5">
     <div class="row">
         <div class="col-md-4 col-sm-12 p-5">
             <h1 class="title">Влад</h1>
@@ -71,7 +72,43 @@
             <img src="{% static "invitation/jpg/dasha_new.jpg" %}" class="img-fluid rounded-circle">
         </div>
     </div>
-    <div>Lorem imsup</div>
+    <div class="mask-inside">
+        <img src="{% static "invitation/jpg/mask_pink.png" %}">
+    </div>
+</div>
+<div id="how-where" class="how-where container-fluid p-0 pb-5">
+    <div class="flower-where m-auto">
+        <img src="{% static "/invitation/jpg/date-flowers.png" %}" class="img-fluid">
+    </div>
+    <div class="row pt-5">
+        <div class="col-md-6 col-sm-12 text-center pb-5">
+            <img src="{% static "/invitation/jpg/mayak.jpg" %}" class="how-png mx-auto">
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <div class="row text-center align-items-center">
+                <div class="col-6 border-dark border-right">
+                    <h1 class="title">Где</h1>
+                </div>
+                <div class="col-6">
+                    <h1 class="title">Когда</h1>
+                </div>
+            </div>
+            <div class="row text-center align-items-center">
+                <div class="col-6 border-dark border-right">
+                    <div class="row how-text align-items-center p-3">
+                        <i class="fas fa-map-marker-alt col-1"></i>
+                        <span class="col-8">Парк-отель "Пересвет"</span>
+                    </div>
+                </div>
+                <div class="col-6 p-3">
+                    <div class="row how-text align-items-center">
+                        <i class="far fa-clock col-1"></i>
+                        <span class="col">16:00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 <script type="text/javascript">
