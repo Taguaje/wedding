@@ -71,3 +71,8 @@ body{
 .nav-link.last:after {
     display: none;
 }
+
+.social-a,.social-a:hover{
+    text-decoration: none !important;
+    color: white !important;
+}
