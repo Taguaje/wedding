@@ -237,7 +237,7 @@ ul.time-line.layout-1 li .story-item.twice:after {
 
     ul.time-line.layout-1 li .story-item .img_in,
     ul.time-line.layout-1 li:nth-child(even) .story-item .img_in {
-        width: 90px;
+        width: 40%;
         border: 8px solid #efe1e1e3;
         border-radius: 50%;
         margin-left: auto;
@@ -247,7 +247,7 @@ ul.time-line.layout-1 li .story-item.twice:after {
     }
 
     ul.time-line.layout-1 li:nth-child(1) .story-item .img_in {
-        width: 50%;
+        width: 70%;
         margin-left: auto;
         margin-right: auto;
         float: none;
