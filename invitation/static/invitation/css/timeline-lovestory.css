@@ -9,9 +9,9 @@ ul.time-line.layout-1:before {
     content: " ";
     display: block;
     width: 1px;
-    height: 1440px;
+    height: 1840px;
     position: absolute;
-    top: 4%;
+    top: 5%;
     left: 0;
     right: 0;
     margin: auto;
