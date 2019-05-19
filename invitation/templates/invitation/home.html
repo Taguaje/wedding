@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{% static "invitation/css/flipclock.css" %}">
     <link rel="stylesheet" href="{% static "invitation/css/flipclock-resposive.css" %}">
     <link rel="stylesheet" href="{% static "invitation/css/timeline-lovestory.css" %}">
+    <link rel="stylesheet" href="{% static "invitation/css/program-timeline.css" %}">
     <link rel="stylesheet" href="{% static "invitation/css/main.css" %}">
     <link rel="stylesheet" href="{% static "invitation/css/navbar.css" %}">
     <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.css" %}">
@@ -234,8 +235,55 @@
                     </div>
                 </div>
             </div>
+            <div class="row m-auto pt-5 text-center">
+                <div class="row m-auto">
+                    <h1 class="title">Как</h1>
+                </div>
+                <div class="input-flex-container">
+                    <input type="radio" name="timeline-dot" data-description="1910">
+                    <div class="dot-info" data-description="1910">
+                        <span class="year">15:30</span>
+                        <span class="label">Сбор гостей</span>
+                    </div>
+                    <input type="radio" name="timeline-dot" data-description="1920">
+                    <div class="dot-info" data-description="1920">
+                        <span class="year">16:00</span>
+                        <span class="label">Регистрация</span>
+                    </div>
+                    <input type="radio" name="timeline-dot" data-description="1930" checked>
+                    <div class="dot-info" data-description="1930">
+                        <span class="year">16:30</span>
+                        <span class="label">Фуршет</span>
+                    </div>
+                    <input type="radio" name="timeline-dot" data-description="1940">
+                    <div class="dot-info" data-description="1940">
+                        <span class="year">17:00</span>
+                        <span class="label">Банкет</span>
+                    </div>
+                    <input type="radio" name="timeline-dot" data-description="1950">
+                    <div class="dot-info" data-description="1950">
+                        <span class="year">21:00</span>
+                        <span class="label">Торт</span>
+                    </div>
+                    <input type="radio" name="timeline-dot" data-description="1960">
+                    <div class="dot-info" data-description="1960">
+                        <span class="year">22:00</span>
+                        <span class="label">Afterparty</span>
+                    </div>
+                    <div id="timeline-descriptions-wrapper">
+                        <p data-description="1910">And future Call of Duty players would thank them.</p>
+                        <p data-description="1920">Because every kid should get to be Tarzan for a day.</p>
+                        <p data-description="1930">And the world rejoiced.</p>
+                        <p data-description="1940">Because building roads is inconvenient.</p>
+                        <p data-description="1950">Ain’t nobody got time to rake.</p>
+                        <p data-description="1960">Because paper currency is for noobs.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+
 </div>
 </body>
 <script type="text/javascript">
