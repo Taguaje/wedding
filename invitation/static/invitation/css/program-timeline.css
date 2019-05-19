@@ -31,6 +31,10 @@ h1 span {
     font-family: "Comfortaa", serif;
 }
 
+.input-flex-container input.last-event:after {
+    display: none;
+}
+
 input {
     width: 25px;
     height: 25px;
@@ -104,11 +108,17 @@ input:checked + .dot-info span {
     top: -65px;
     left: 0;
     transform: rotateZ(-45deg);
-    word-wrap: break-word;
     width: 70px;
     text-indent: -10px;
 }
 
+.dot-info .dot-icon{
+    visibility: visible;
+    position: absolute;
+    bottom: -180%;
+    left: -300%;
+    max-width: 150%;
+}
 #timeline-descriptions-wrapper {
     width: 100%;
     margin-top: 140px;
@@ -198,8 +208,17 @@ input[data-description="2000"]:checked ~ #timeline-descriptions-wrapper p[data-d
     input, .dot-info {
         width: 70px;
         height: 70px;
-        margin: 0 15px 60px !important;
+        margin: 0 15px 150px !important;
+        word-wrap: break-word;
     }
+
+    .dot-info .dot-icon{
+    visibility: visible;
+    position: absolute;
+    bottom: -180%;
+    left: 0%;
+    max-width: 80%;
+}
 
     input {
         background-color: transparent !important;
