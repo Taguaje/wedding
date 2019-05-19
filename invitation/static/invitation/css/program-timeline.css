@@ -223,7 +223,7 @@ input[data-description="2000"]:checked ~ #timeline-descriptions-wrapper p[data-d
         border-radius: 50%;
         z-index: 0;
         left: 0;
-        margin-left: -70px !important;
+        margin-left: -85px !important;
         background-color: #AEB6BF;
     }
     .dot-info span.year {
