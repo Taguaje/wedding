@@ -121,7 +121,7 @@ input:checked + .dot-info span {
 }
 #timeline-descriptions-wrapper {
     width: 100%;
-    margin-top: 140px;
+    margin-top: 70px;
     font-size: 22px;
     font-weight: 400;
     margin-left: calc((-80vw - 25px) / 20);
@@ -265,7 +265,7 @@ input[data-description="2000"]:checked ~ #timeline-descriptions-wrapper p[data-d
     }
 
     #timeline-descriptions-wrapper {
-        margin-top: 30px;
+        margin-top: 10px;
         margin-left: 0;
         text-align: center;
     }

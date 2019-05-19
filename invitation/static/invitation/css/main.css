@@ -99,7 +99,7 @@ span.swirl-right {
 
 .how-text{
     font-family: "Comfortaa";
-    font-size: calc(0.5em + 1vw);
+    font-size: calc(0.9em + 0.5vw);
     word-wrap: break-word;
 }
 .love-story{
@@ -157,4 +157,16 @@ img{
 
 .after{
     max-width: 10%;
+}
+
+.location-href{
+    font-size: calc(0.6em + 0.5vh);
+    color: #1b1e21;
+}
+
+.where-icon{
+    display: block;
+    position: absolute !important;
+    left: 0;
+    top:40%;
 }
