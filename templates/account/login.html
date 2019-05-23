@@ -6,13 +6,16 @@
     <title>Сервис игрофикации</title>
     <script src="{% static '/invitation/js/jquery-3.4.1.min.js' %}"></script>
     <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static '/invitation/css/login.css' %}">
     <script src="{% static '/bootstrap/js/bootstrap.js' %}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Marck+Script" rel="stylesheet">
 </head>
-<body style="height: 100vh;" class="bg-light">
-    <div class="h-100 container-fluid col-md-3">
-        <div class="h-75 row align-items-center">
-            <div class="col p-2">
-                <h3 class="text-center"><a class="text-dark" href="/">Сервис игрофикации</a></h3>
+<body style="height: 100vh;">
+<div class="h-100 container-fluid col-md-3">
+    <div class="h-75 row align-items-center text-center">
+        <div class="col p-2">
+            <img class="rsvp-flower" src="{% static "invitation/jpg/rsvp-flower.png" %}">
+            <h3 class="text-center"><a class="text-dark" href="/">Приглашение</a></h3>
             <form method="POST" action="{% url 'account_login' %}" class="pt-2">
                 {% csrf_token %}
                 <div class="form-group row">
@@ -33,9 +36,8 @@
                 <div class="form-group row">
                     <button class="btn btn-primary btn-block" type="submit">Войти</button>
                 </div>
-                <p class="message text-center">Не зарегистрированы? <a href="/accounts/signup/">Зарегистрироваться</a></p>
             </form>
-            </div>
         </div>
     </div>
+</div>
 </body>

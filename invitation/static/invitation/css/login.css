@@ -1,0 +1,20 @@
+body{
+   background: url("/static/invitation/jpg/seamless_new.png");
+    font-family: "Comfortaa", serif;
+}
+
+.leaves-left{
+    position: absolute;
+    left: -300px;
+    top:40%
+}
+
+.leaves-right{
+    position: absolute;
+    right: -300px;
+    top:40%
+}
+
+.rsvp-flower{
+  width: 50%;
+}
