@@ -9,7 +9,7 @@ ul.time-line.layout-1:before {
     content: " ";
     display: block;
     width: 1px;
-    height: 1840px;
+    height: 2540px;
     position: absolute;
     top: 5%;
     left: 0;
@@ -43,7 +43,7 @@ ul.time-line.layout-1 li .story-item:after {
     background-color: #edcdc7;
     position: absolute;
     top: 40%;
-    left: -71.5%;
+    left: -70.5%;
 }
 ul.time-line.layout-1 li .story-item .icon {
     width: 85px;
@@ -102,7 +102,7 @@ ul.time-line.layout-1 li:nth-child(even) .story-item:after {
     background-color: #edcdc7;
     position: absolute;
     top: 40%;
-    right: -71.5%;
+    right: -70.5%;
     left: auto;
 }
 ul.time-line.layout-1 li:nth-child(even) .story-item .icon {
@@ -170,7 +170,7 @@ ul.time-line.layout-1 li .story-item.twice .icon {
 }
 
 ul.time-line.layout-1 li .story-item.twice:after {
-    left: -135.5%;
+    left: -134.5%;
     top: 30%;
 }
 

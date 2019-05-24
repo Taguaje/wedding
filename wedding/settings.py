@@ -25,7 +25,7 @@ SECRET_KEY = '%b&if!7jyja*c-jg#*d_*=gmyy-k)_l36mu_64*ql7+_z$9uce'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.100.12']
+ALLOWED_HOSTS = ['192.168.100.12', '127.0.0.1', 'vladdasha.pythonanywhere.com']
 
 
 # Application definition
@@ -34,6 +34,9 @@ INSTALLED_APPS = [
     'invitation',
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -105,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'UTC'
 
@@ -120,3 +123,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+SITE_ID = '1'

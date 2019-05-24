@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
+from invitation import views
 
 urlpatterns = [
-    path('invite', include('invitation.urls')),
+    path('invite/', include('invitation.urls')),
     path('', include('invitation.urls')),
     path('admin/', admin.site.urls),
+    path('accounts/profile/', views.profile),
     url(r'^accounts/', include('allauth.urls')),
 ]

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Свадьба Влада и Даши</title>
+    {% load static %}
+    {% load account %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Свадьба Влада и Даши</title>
+    <link rel="stylesheet" href="{% static "invitation/css/profile.css" %}">
+    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.css" %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Marck+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CClicker+Script" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Caveat|Source+Sans+Pro&amp;subset=cyrillic" rel="stylesheet">
+    <script src="{% static "invitation/js/jquery-3.4.1.min.js" %}"></script>
+    <script src="{% static "bootstrap/js/bootstrap.js" %}"></script>
+</head>
+</head>
+<body>
+<div class="container-fluid p-0">
+    <header>
+    </header>
+    <main>
+        <div class="row">
+            <div class="left col-lg-4">
+                <div class="photo-left">
+                    <img class="photo" src="{% static 'invitation/jpg/avatar.JPG' %}"/>
+                </div>
+                <h4 class="name">Владислав Мехряков</h4>
+                <button class="rsvp"><a href="/invite">На главную</a></button>
+            </div>
+            <div class="right col-lg-8">
+                <div class="row text-center">
+                    <span class="question-title">Мы будем рады видеть тебя на нашей свадьбе!</span>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>
