@@ -3,15 +3,18 @@
 <head>
     {% load staticfiles %}
     {% load account %}
-    <title>Сервис игрофикации</title>
+    <title>Свадьба Влада и Даши</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="{% static '/invitation/js/jquery-3.4.1.min.js' %}"></script>
     <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static '/invitation/css/login.css' %}">
     <script src="{% static '/bootstrap/js/bootstrap.js' %}"></script>
+    <script src="{% static '/invitation/js/login.js' %}"></script>
     <link href="https://fonts.googleapis.com/css?family=Comfortaa|Marck+Script" rel="stylesheet">
 </head>
 <body style="height: 100vh;">
-<div class="h-100 container-fluid col-md-3">
+<div class="h-100 container-fluid col-md-3 col-10">
     <div class="h-75 row align-items-center text-center">
         <div class="col p-2">
             <img class="rsvp-flower" src="{% static "invitation/jpg/rsvp-flower.png" %}">
@@ -19,13 +22,15 @@
             <form method="POST" action="{% url 'account_login' %}" class="pt-2">
                 {% csrf_token %}
                 <div class="form-group row">
-                    <input type="text" class="form-control" name="login" id="login_id" placeholder="Имя пользователя"/>
+                    <input type="text" class="form-control" id="name" placeholder="Ваше имя" oninput="updateLogin()" autocomplete="off"/>
+                    <input type="text" class="form-control" name="login" id="login_id"  hidden/>
                 </div>
                 <div class="form-group row text-danger">
                     {{ form.login.errors }}
                 </div>
                 <div class="form-group row">
-                    <input type="password" class="form-control" placeholder="Пароль" name="password" value="" id="id_password"/>
+                    <input type="text" class="form-control" id="second_name" placeholder="Ваша фамилия" oninput="updateLogin()" autocomplete="off"/>
+                    <input type="password" class="form-control" placeholder="Пароль" name="password" value="" id="id_password" hidden/>
                 </div>
                 <div class="form-group row text-danger">
                     {{ form.password.errors }}
