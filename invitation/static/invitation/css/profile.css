@@ -1,6 +1,11 @@
+:root{
+   --main-bg-color: #388e3c;
+}
+
 html,body {
   background: #efefef;
   font-family: "Comfortaa";
+
 }
 
 .container {
@@ -59,7 +64,7 @@ main {
   height: 200px;
   margin-top: -60%;
   border-radius: 100px;
-  border: 4px solid #fbbdc2;
+  border: 3px solid var(--main-bg-color);
 }
 
 .name {
@@ -76,7 +81,7 @@ main {
 
 .rsvp{
     background-color: #fff;
-    border: solid #fbbdc2 2px;
+    border: solid var(--main-bg-color) 2px;
     padding: 10px;
     border-radius: 5px;
     font-weight: 400;
@@ -94,12 +99,12 @@ main {
 
 .rsvp a{
     text-decoration: none;
-    color: #fbbdc2;
+    color: var(--main-bg-color);
 }
 
 .rsvp a:hover{
     text-decoration: none;
-    color: #fbbdc2;
+    color: var(--main-bg-color);
 }
 
 .question-title{
