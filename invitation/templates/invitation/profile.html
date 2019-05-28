@@ -26,35 +26,44 @@
     </header>
     <main>
         <div class="row">
-            <div class="left col-lg-4">
+            <div class="left col-lg-3">
                 <div class="photo-left">
                     <img class="photo" src="{% static 'invitation/jpg/avatar.JPG' %}"/>
                 </div>
                 <h4 class="name">Владислав Мехряков</h4>
                 <button class="rsvp"><a href="/invite">На главную</a></button>
             </div>
-            <div class="right col-lg-8">
-                <div class="row text-center mt-4 align-content-center bg-light p-3">
-                    <span class="question-title align-items-center">Мы будет очень рады если ты прийдешь!</span>
-                    <div id="container">
-                        <div class="inner-container">
-                            <div class="toggle">
-                                <p>Не смогу</p>
+            <div class="right col-lg-9">
+                <div class="row text-center mt-4 bg-light profile-block">
+                    <div class="profile-img-block col-xl-2 col-lg-2 col-md-12 p-0">
+                        <img class="img-fluid" src="{% static  '/invitation/jpg/sweet-ice-cream-photography-170766-unsplash.jpg'%}">
+                    </div>
+                    <div class="profile-text-block col-xl-5 col-lg-4 col-md-11 p-3">
+                        <span class="question-title">Мы будет очень рады, если ты прийдешь!</span>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-6 p-3">
+                        <div id="container" class="">
+                            <div class="inner-container">
+                                <div class="toggle first">
+                                    <p>Не смогу</p>
+                                </div>
+                                <div class="toggle second">
+                                    <p>Приду</p>
+                                </div>
                             </div>
-                            <div class="toggle">
-                                <p>Приду</p>
-                            </div>
-                        </div>
-                        <div class="inner-container" id='toggle-container'>
-                            <div class="toggle">
-                                <p>Не смогу</p>
-                            </div>
-                            <div class="toggle">
-                                <p>Приду</p>
+                            <div class="inner-container" id='toggle-container'>
+                                <div class="toggle first">
+                                    <p>Не смогу</p>
+                                </div>
+                                <div class="toggle second">
+                                    <p>Приду</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <button class="rsvp"><a href="/invite">Подтвердить</a></button>
+                    <div class="col-xl-2 col-lg-3 col-6 p-3">
+                        <button class="profile-button m-auto">ПОДТВЕРДИТЬ</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -71,11 +80,9 @@
     toggle.addEventListener('click', function() {
         toggleNumber = !toggleNumber;
         if (toggleNumber) {
-            toggleContainer.style.clipPath = 'inset(0 0 0 50%)';
-            toggleContainer.style.backgroundColor = '#D74046';
+            toggleContainer.style.cssText = '-webkit-clip-path: inset(0px 0px 0px 50%); background-color: #D74046;';
         } else {
-            toggleContainer.style.clipPath = 'inset(0 50% 0 0)';
-            toggleContainer.style.backgroundColor = '#388e3c';
+            toggleContainer.style.cssText = '-webkit-clip-path: inset(0px 50% 0px 0px); background-color: #388e3c;';
         }
         console.log(toggleNumber)
     });

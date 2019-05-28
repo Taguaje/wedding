@@ -32,7 +32,7 @@
 .inner-container:nth-child(2) {
 	background: #388e3c;
 	color: white;
-	clip-path: inset(0 50% 0 0);
+	-webkit-clip-path: inset(0 50% 0 0);
 	transition: .3s cubic-bezier(0,0,0,1);
 }
 
@@ -50,4 +50,25 @@
 
 .toggle:nth-child(1) {
 	right: 0;
+}
+
+
+@media (min-width: 300px) {
+	#container {
+		width: 150px;
+		height: 46px;
+	}
+	.inner-container {
+		font-size: 0.8em;
+	}
+}
+
+@media (min-width: 1200px) {
+	#container {
+		width: 200px;
+		height: 56px;
+	}
+	.inner-container {
+		font-size: 1em;
+	}
 }
