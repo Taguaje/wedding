@@ -10,7 +10,7 @@
     <title>Свадьба Влада и Даши</title>
     <link rel="stylesheet" href="{% static "invitation/css/profile.css" %}">
     <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.css" %}">
-    <link rel="stylesheet" href="{% static "invitation/css/togle.css" %}">
+    <link rel="stylesheet" href="{% static "invitation/css/toggle.css" %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Comfortaa|Marck+Script" rel="stylesheet">
@@ -34,31 +34,50 @@
                 <button class="rsvp"><a href="/invite">На главную</a></button>
             </div>
             <div class="right col-lg-8">
-                <div class="row text-center">
-                    <span class="question-title">Мы будем рады видеть тебя на нашей свадьбе!</span>
-                    <div class="switch">
-                        <input type="checkbox" name="toggle">
-                        <label for="toggle">
-                            <i class="bulb">
-                                <span class="bulb-center"></span>
-                                <span class="filament-1"></span>
-                                <span class="filament-2"></span>
-                                <span class="reflections">
-        <span></span>
-      </span>
-                                <span class="sparks">
-        <i class="spark1"></i>
-        <i class="spark2"></i>
-        <i class="spark3"></i>
-        <i class="spark4"></i>
-      </span>
-                            </i>
-                        </label>
+                <div class="row text-center mt-4 align-content-center bg-light p-3">
+                    <span class="question-title align-items-center">Мы будет очень рады если ты прийдешь!</span>
+                    <div id="container">
+                        <div class="inner-container">
+                            <div class="toggle">
+                                <p>Не смогу</p>
+                            </div>
+                            <div class="toggle">
+                                <p>Приду</p>
+                            </div>
+                        </div>
+                        <div class="inner-container" id='toggle-container'>
+                            <div class="toggle">
+                                <p>Не смогу</p>
+                            </div>
+                            <div class="toggle">
+                                <p>Приду</p>
+                            </div>
+                        </div>
                     </div>
+                    <button class="rsvp"><a href="/invite">Подтвердить</a></button>
                 </div>
             </div>
         </div>
     </main>
 </div>
 </body>
+
+<script type="text/javascript">
+
+    var toggle = document.getElementById('container');
+    var toggleContainer = document.getElementById('toggle-container');
+    var toggleNumber;
+
+    toggle.addEventListener('click', function() {
+        toggleNumber = !toggleNumber;
+        if (toggleNumber) {
+            toggleContainer.style.clipPath = 'inset(0 0 0 50%)';
+            toggleContainer.style.backgroundColor = '#D74046';
+        } else {
+            toggleContainer.style.clipPath = 'inset(0 50% 0 0)';
+            toggleContainer.style.backgroundColor = '#388e3c';
+        }
+        console.log(toggleNumber)
+    });
+</script>
 </html>
