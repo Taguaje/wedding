@@ -30,7 +30,7 @@
                 <div class="photo-left">
                     <img class="photo" src="{% static 'invitation/jpg/avatar.JPG' %}"/>
                 </div>
-                <h4 class="name">Владислав Мехряков</h4>
+                <h4 class="name">{{ guestName }}</h4>
                 <button class="rsvp"><a href="/invite">На главную</a></button>
             </div>
             <div class="right col-lg-9">
@@ -38,32 +38,84 @@
                     <div class="profile-img-block col-xl-2 col-lg-2 col-md-12 p-0">
                         <img class="img-fluid" src="{% static  '/invitation/jpg/sweet-ice-cream-photography-170766-unsplash.jpg'%}">
                     </div>
-                    <div class="profile-text-block col-xl-5 col-lg-4 col-md-11 p-3">
-                        <span class="question-title">Мы будет очень рады, если ты прийдешь!</span>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-6 p-3">
-                        <div id="container" class="">
-                            <div class="inner-container">
-                                <div class="toggle first">
-                                    <p>Не смогу</p>
+                    {% if guest.confirm %}
+                        <div id = "textConfirm" class="profile-text-block col-xl-8 col-lg-7 col-md-11 p-3">
+                            {% if guest.isComing %}
+                                <span class="question-title">Ура! Ждем тебя на нашей свадьбе с нетерпением :)</span>
+                            {% else %}
+                                <span class="question-title">Жалко, что тебя не будет :(</span>
+                            {% endif %}
+                        </div>
+
+
+                        <div id="inputConfirm" class="col-xl-7 col-lg-4 col-md-11" hidden>
+                            <div class="row p-3 justify-content-center align-items-center">
+                                <div class="col">
+                                <span class="question-title">Изменить решение:</span>
                                 </div>
-                                <div class="toggle second">
-                                    <p>Приду</p>
+                                <div class="col">
+                                <div id="container" class="">
+                                    <div class="inner-container">
+                                        <div class="toggle first">
+                                            <p>Не смогу</p>
+                                        </div>
+                                        <div class="toggle second">
+                                            <p>Приду</p>
+                                        </div>
+                                    </div>
+                                    <div class="inner-container" id='toggle-container'>
+                                        <div class="toggle first">
+                                            <p>Не смогу</p>
+                                        </div>
+                                        <div class="toggle second">
+                                            <p>Приду</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="inner-container" id='toggle-container'>
-                                <div class="toggle first">
-                                    <p>Не смогу</p>
-                                </div>
-                                <div class="toggle second">
-                                    <p>Приду</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-6 p-3">
-                        <button class="profile-button m-auto">ПОДТВЕРДИТЬ</button>
-                    </div>
+
+                        <div id="buttonChangeConfirm" class="col-xl-2 col-lg-3 col-12 p-3">
+                            <button class="profile-button m-auto" type="button" onclick="changeConfirm(true)">ИЗМЕНИТЬ</button>
+                        </div>
+
+                        <div id="buttonReset" class="col-xl-3 col-lg-3 col-12 p-2" hidden>
+                            <div class="row p-3 justify-content-center justify-content-md-end">
+                                <button id="buttonConfirm" class="profile-button m-1" onclick="confirm()">ПОДТВЕРДИТЬ</button>
+                                <button class="profile-button m-1 reset" type="button" onclick="changeConfirm(false)">ОТМЕНА</button>
+                            </div>
+                        </div>
+
+                    {% else %}
+                        <div class="profile-text-block col-xl-5 col-lg-4 col-md-11 p-3">
+                            <span class="question-title">Мы будет очень рады, если ты прийдешь!</span>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-6 p-3">
+                            <div id="container" class="">
+                                <div class="inner-container">
+                                    <div class="toggle first">
+                                        <p>Не смогу</p>
+                                    </div>
+                                    <div class="toggle second">
+                                        <p>Приду</p>
+                                    </div>
+                                </div>
+                                <div class="inner-container" id='toggle-container'>
+                                    <div class="toggle first">
+                                        <p>Не смогу</p>
+                                    </div>
+                                    <div class="toggle second">
+                                        <p>Приду</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-6 p-3">
+                            <button class="profile-button m-auto" onclick="confirm()">ПОДТВЕРДИТЬ</button>
+                        </div>
+                    {% endif %}
+
                 </div>
             </div>
         </div>
@@ -86,5 +138,64 @@
         }
         console.log(toggleNumber)
     });
+    
+    function confirm() {
+        $.post('/invite/confirm_invite/', {isComing: !toggleNumber}, OnSuccess)
+    }
+
+    function changeConfirm(visibility) {
+        var input = document.getElementById('inputConfirm');
+        var text = document.getElementById('textConfirm');
+        var textChange = document.getElementById('textConfirmChange');
+        var button = document.getElementById('buttonConfirm');
+        var buttonChange = document.getElementById('buttonChangeConfirm');
+        var buttonReset = document.getElementById('buttonReset');
+        button.hidden = !visibility;
+        buttonReset.hidden = !visibility;
+        input.hidden = !visibility;
+        text.hidden = visibility;
+        buttonChange.hidden = visibility;
+    }
+
+    function OnSuccess (data) {
+            if(data='ok'){
+                location.reload()
+            }
+            else
+                alert('Произошла ошибка')
+
+    }
+
+
+      // using jQuery
+    function getCookie(name) {
+        cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            cookies = document.cookie.split(';');
+            for (i = 0; i < cookies.length; i++) {
+                cookie = jQuery.trim(cookies[i]);
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    csrftoken = getCookie('csrftoken');
+
+    function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    $.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+    });
+
+
 </script>
 </html>

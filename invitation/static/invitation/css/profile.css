@@ -9,6 +9,10 @@ html,body {
 
 }
 
+#buttonReset button.reset{
+    background-color: #D74046;
+}
+
 .container {
   max-width: 1250px;
   margin: 30px auto 30px;
