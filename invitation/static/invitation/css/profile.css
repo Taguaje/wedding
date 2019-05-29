@@ -9,7 +9,11 @@ html,body {
 
 }
 
-#buttonReset button.reset{
+i{
+    cursor: pointer;
+}
+
+#buttonReset button.reset,#buttonReset2 button.reset {
     background-color: #D74046;
 }
 
@@ -80,6 +84,10 @@ main {
   color: #777;
 }
 
+.name-row{
+    border-bottom: 1px solid #5f5f5f73;
+}
+
 .right {
   padding: 0 25px 0 25px !important;
 }
@@ -87,11 +95,13 @@ main {
 .rsvp{
     background-color: #fff;
     border: solid var(--secondary-bg-color) 2px;
-    padding: 10px;
+    padding: 5px;
+    margin: 5px;
     border-radius: 5px;
     font-weight: 400;
+    color: var(--secondary-bg-color);
     font-family: "Comfortaa", serif;
-    font-size: calc(1em + 0.2vw);
+    font-size: calc(0.7em + 0.2vw);
     margin-top: 20px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
@@ -137,6 +147,26 @@ main {
 .profile-img-block img{
 
 }
+
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 2px solid var(--secondary-bg-color);
+    display: inline-block;
+    padding: 5px;
+    cursor: pointer;
+    height: 40px;
+    color: var(--secondary-bg-color);
+    background-color: white;
+    border-radius: 5px;
+    font-size: calc(0.7em + 0.2vw);
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-family: "Comfortaa", serif;
+}
+
 
 @media (min-width: 300px) {
 	.profile-button {

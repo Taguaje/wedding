@@ -26,3 +26,16 @@ def confirm_invite(request):
         guest.confirm = True
         guest.save()
         return HttpResponse('ok', content_type='text/html')
+
+
+def confirm_transfer(request):
+    if request.method == 'POST':
+        guest = Guest.objects.get(user=request.user)
+        needTransfer = request.POST.get('needTransfer')
+        if needTransfer == 'true':
+            guest.needTransfer = True
+        else:
+            guest.needTransfer = False
+        guest.transferConfirm = True
+        guest.save()
+        return HttpResponse('ok', content_type='text/html')

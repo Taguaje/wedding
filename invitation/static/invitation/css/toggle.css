@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Asap:400,500,700');
 
-#container {
+#container, #container-2 {
 	width: 200px;
 	height: 56px;
 	margin: auto;
@@ -54,7 +54,7 @@
 
 
 @media (min-width: 300px) {
-	#container {
+	#container, #container-2 {
 		width: 150px;
 		height: 46px;
 	}
@@ -64,7 +64,7 @@
 }
 
 @media (min-width: 1200px) {
-	#container {
+	#container, #container-2 {
 		width: 200px;
 		height: 56px;
 	}

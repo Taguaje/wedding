@@ -18,6 +18,8 @@
     <link href="https://fonts.googleapis.com/css?family=Caveat|Source+Sans+Pro&amp;subset=cyrillic" rel="stylesheet">
     <script src="{% static "invitation/js/jquery-3.4.1.min.js" %}"></script>
     <script src="{% static "bootstrap/js/bootstrap.js" %}"></script>
+    <script src="{% static "invitation/js/cropper.min.js" %}"></script>
+    <link rel="stylesheet" href="{% static "invitation/css/cropper.min.css" %}">
 </head>
 </head>
 <body>
@@ -30,8 +32,20 @@
                 <div class="photo-left">
                     <img class="photo" src="{% static 'invitation/jpg/avatar.JPG' %}"/>
                 </div>
-                <h4 class="name">{{ guestName }}</h4>
-                <button class="rsvp"><a href="/invite">На главную</a></button>
+                <div class="name-row">
+                     <h4 class="name">{{ guestName }}</h4>
+                </div>
+                <div class="row">
+                    <label for="file-upload" class="custom-file-upload">
+                        <i class="fa fa-cloud-upload"></i> Обновить фото
+                    </label>
+                    <input id="file-upload" type="file" accept="image/*" id="id_file"/>
+                    <button class="rsvp"><a href="/invite">На главную</a></button>
+                </div>
+                <div class="collapse" id="collapseExample">
+                    <input type="file" >
+                </div>
+
             </div>
             <div class="right col-lg-9">
                 <div class="row text-center mt-4 bg-light profile-block">
@@ -46,47 +60,42 @@
                                 <span class="question-title">Жалко, что тебя не будет :(</span>
                             {% endif %}
                         </div>
-
-
                         <div id="inputConfirm" class="col-xl-7 col-lg-4 col-md-11" hidden>
                             <div class="row p-3 justify-content-center align-items-center">
                                 <div class="col">
-                                <span class="question-title">Изменить решение:</span>
+                                    <span class="question-title">Изменить решение:</span>
                                 </div>
                                 <div class="col">
-                                <div id="container" class="">
-                                    <div class="inner-container">
-                                        <div class="toggle first">
-                                            <p>Не смогу</p>
+                                    <div id="container" class="">
+                                        <div class="inner-container">
+                                            <div class="toggle first">
+                                                <p>Не смогу</p>
+                                            </div>
+                                            <div class="toggle second">
+                                                <p>Приду</p>
+                                            </div>
                                         </div>
-                                        <div class="toggle second">
-                                            <p>Приду</p>
+                                        <div class="inner-container" id='toggle-container'>
+                                            <div class="toggle first">
+                                                <p>Не смогу</p>
+                                            </div>
+                                            <div class="toggle second">
+                                                <p>Приду</p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="inner-container" id='toggle-container'>
-                                        <div class="toggle first">
-                                            <p>Не смогу</p>
-                                        </div>
-                                        <div class="toggle second">
-                                            <p>Приду</p>
-                                        </div>
-                                    </div>
-                                </div>
                                 </div>
                             </div>
                         </div>
-
                         <div id="buttonChangeConfirm" class="col-xl-2 col-lg-3 col-12 p-3">
                             <button class="profile-button m-auto" type="button" onclick="changeConfirm(true)">ИЗМЕНИТЬ</button>
                         </div>
-
                         <div id="buttonReset" class="col-xl-3 col-lg-3 col-12 p-2" hidden>
                             <div class="row p-3 justify-content-center justify-content-md-end">
                                 <button id="buttonConfirm" class="profile-button m-1" onclick="confirm()">ПОДТВЕРДИТЬ</button>
                                 <button class="profile-button m-1 reset" type="button" onclick="changeConfirm(false)">ОТМЕНА</button>
                             </div>
                         </div>
-
                     {% else %}
                         <div class="profile-text-block col-xl-5 col-lg-4 col-md-11 p-3">
                             <span class="question-title">Мы будет очень рады, если ты прийдешь!</span>
@@ -115,7 +124,83 @@
                             <button class="profile-button m-auto" onclick="confirm()">ПОДТВЕРДИТЬ</button>
                         </div>
                     {% endif %}
-
+                </div>
+                <div class="row text-center mt-4 bg-light profile-block">
+                    <div class="profile-img-block col-xl-2 col-lg-2 col-md-12 p-0">
+                        <img class="img-fluid" src="{% static  '/invitation/jpg/thomas-curryer-97018-unsplash.jpg'%}">
+                    </div>
+                    {% if guest.transferConfirm %}
+                        <div id = "textConfirm2" class="profile-text-block col-xl-8 col-lg-7 col-md-11 p-3">
+                            {% if guest.needTransfer %}
+                                <span class="question-title">Мы свяжемся с тобой, ближе к свадьбе, и уточним детали</span>
+                            {% else %}
+                                <span class="question-title">Ждем тебя 2 августа в 15:30 в парк-отеле "Пересвет"</span>
+                            {% endif %}
+                        </div>
+                        <div id="inputConfirm2" class="col-xl-7 col-lg-4 col-md-11" hidden>
+                            <div class="row p-3 justify-content-center align-items-center">
+                                <div class="col">
+                                    <span class="question-title">Изменить решение:</span>
+                                </div>
+                                <div class="col">
+                                    <div id="container-2" class="">
+                                <div class="inner-container">
+                                    <div class="toggle">
+                                        <p>Не Нужен</p>
+                                    </div>
+                                    <div class="toggle">
+                                        <p>нужен</p>
+                                    </div>
+                                </div>
+                                <div class="inner-container" id='toggle-container-2'>
+                                    <div class="toggle">
+                                        <p>НЕ Нужен</p>
+                                    </div>
+                                    <div class="toggle">
+                                        <p>нужен</p>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="buttonChangeConfirm2" class="col-xl-2 col-lg-3 col-12 p-3">
+                            <button class="profile-button m-auto" type="button" onclick="changeConfirm2(true)">ИЗМЕНИТЬ</button>
+                        </div>
+                        <div id="buttonReset2" class="col-xl-3 col-lg-3 col-12 p-2" hidden>
+                            <div class="row p-3 justify-content-center justify-content-md-end">
+                                <button id="buttonConfirm2" class="profile-button m-1" onclick="confirmTransfer()">ПОДТВЕРДИТЬ</button>
+                                <button class="profile-button m-1 reset" type="button" onclick="changeConfirm2(false)">ОТМЕНА</button>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="profile-text-block col-xl-5 col-lg-4 col-md-11 p-3">
+                            <span class="question-title">Мы можем помочь тебе добраться до места нашей свадьбы. Нужен ли тебе трансфер?</span>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-6 p-3">
+                            <div id="container-2" class="">
+                                <div class="inner-container">
+                                    <div class="toggle">
+                                        <p>Не Нужен</p>
+                                    </div>
+                                    <div class="toggle">
+                                        <p>нужен</p>
+                                    </div>
+                                </div>
+                                <div class="inner-container" id='toggle-container-2'>
+                                    <div class="toggle">
+                                        <p>НЕ Нужен</p>
+                                    </div>
+                                    <div class="toggle">
+                                        <p>нужен</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-6 p-3">
+                            <button class="profile-button m-auto" onclick="confirmTransfer()">ПОДТВЕРДИТЬ</button>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -129,6 +214,10 @@
     var toggleContainer = document.getElementById('toggle-container');
     var toggleNumber;
 
+    var toggle2 = document.getElementById('container-2');
+    var toggleContainer2 = document.getElementById('toggle-container-2');
+    var toggleNumber2;
+
     toggle.addEventListener('click', function() {
         toggleNumber = !toggleNumber;
         if (toggleNumber) {
@@ -136,11 +225,23 @@
         } else {
             toggleContainer.style.cssText = '-webkit-clip-path: inset(0px 50% 0px 0px); background-color: #388e3c;';
         }
-        console.log(toggleNumber)
+    });
+
+    toggle2.addEventListener('click', function() {
+        toggleNumber2 = !toggleNumber2;
+        if (toggleNumber2) {
+            toggleContainer2.style.cssText = '-webkit-clip-path: inset(0px 0px 0px 50%); background-color: #D74046;';
+        } else {
+            toggleContainer2.style.cssText = '-webkit-clip-path: inset(0px 50% 0px 0px); background-color: #388e3c;';
+        }
     });
     
     function confirm() {
         $.post('/invite/confirm_invite/', {isComing: !toggleNumber}, OnSuccess)
+    }
+
+    function confirmTransfer() {
+        $.post('/invite/confirm_transfer/', {needTransfer: !toggleNumber2}, OnSuccess)
     }
 
     function changeConfirm(visibility) {
@@ -150,6 +251,20 @@
         var button = document.getElementById('buttonConfirm');
         var buttonChange = document.getElementById('buttonChangeConfirm');
         var buttonReset = document.getElementById('buttonReset');
+        button.hidden = !visibility;
+        buttonReset.hidden = !visibility;
+        input.hidden = !visibility;
+        text.hidden = visibility;
+        buttonChange.hidden = visibility;
+    }
+
+      function changeConfirm2(visibility) {
+        var input = document.getElementById('inputConfirm2');
+        var text = document.getElementById('textConfirm2');
+        var textChange = document.getElementById('textConfirmChange2');
+        var button = document.getElementById('buttonConfirm2');
+        var buttonChange = document.getElementById('buttonChangeConfirm2');
+        var buttonReset = document.getElementById('buttonReset2');
         button.hidden = !visibility;
         buttonReset.hidden = !visibility;
         input.hidden = !visibility;
