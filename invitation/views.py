@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Guest
+from .forms import PhotoForm
 
 
 def index(request):
@@ -11,7 +12,12 @@ def profile(request):
     if request.user.is_authenticated:
         guest = Guest.objects.get(user=request.user)
         guestName = guest.name + " " + guest.family
-        data = {'guestName': guestName, 'guest': guest}
+        try:
+            photoUrl = guest.avatar.url
+        except:
+            photoUrl = ""
+        form = PhotoForm(auto_id = False)
+        data = {'guestName': guestName, 'guest': guest, 'form': form, 'photoUrl': photoUrl}
         return render(request, 'invitation/profile.html', data)
 
 
@@ -39,3 +45,14 @@ def confirm_transfer(request):
         guest.transferConfirm = True
         guest.save()
         return HttpResponse('ok', content_type='text/html')
+
+
+def upload_avatar(request):
+    if request.method == 'POST':
+        guest = Guest.objects.get(user=request.user)
+        guest.avatar.delete()
+        form = PhotoForm(request.POST, request.FILES, instance=guest)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+

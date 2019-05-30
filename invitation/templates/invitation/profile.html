@@ -19,6 +19,7 @@
     <script src="{% static "invitation/js/jquery-3.4.1.min.js" %}"></script>
     <script src="{% static "bootstrap/js/bootstrap.js" %}"></script>
     <script src="{% static "invitation/js/cropper.min.js" %}"></script>
+    <script src="{% static "invitation/js/profile.js" %}"></script>
     <link rel="stylesheet" href="{% static "invitation/css/cropper.min.css" %}">
 </head>
 </head>
@@ -30,21 +31,56 @@
         <div class="row">
             <div class="left col-lg-3">
                 <div class="photo-left">
-                    <img class="photo" src="{% static 'invitation/jpg/avatar.JPG' %}"/>
+                    <img class="photo" src="{{ photoUrl }}"/>
                 </div>
                 <div class="name-row">
                      <h4 class="name">{{ guestName }}</h4>
                 </div>
                 <div class="row">
-                    <label for="file-upload" class="custom-file-upload">
-                        <i class="fa fa-cloud-upload"></i> Обновить фото
-                    </label>
-                    <input id="file-upload" type="file" accept="image/*" id="id_file"/>
+                    <form method="post" enctype="multipart/form-data" id="formUpload" action="/invite/upload_avatar/">
+                        {% csrf_token %}
+                        <label for="id_avatar" class="custom-file-upload">
+                            <i class="fa fa-cloud-upload"></i> Обновить фото
+                        </label>
+                        <input type="file" id="id_avatar" name="avatar" required>
+                        <input type="hidden" id="id_x" name="x">
+                        <input type="hidden" id="id_y" name="y">
+                        <input type="hidden" id="id_width" name="width">
+                        <input type="hidden" id="id_height" name="height">
+                    </form>
                     <button class="rsvp"><a href="/invite">На главную</a></button>
                 </div>
-                <div class="collapse" id="collapseExample">
-                    <input type="file" >
+
+
+                <div class="modal fade" id="modalCrop">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title">Выберите область фото</h4>
+                            </div>
+                            <div class="modal-body">
+                                <img src="" id="image" style="max-width: 100%;">
+                            </div>
+                            <div class="modal-footer">
+                                <div class="btn-group pull-left" role="group">
+                                    <button type="button" class="btn btn-default js-zoom-in">
+                                        <span class="glyphicon glyphicon-zoom-in"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-default js-zoom-out">
+                                        <span class="glyphicon glyphicon-zoom-out"></span>
+                                    </button>
+                                </div>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                                <button type="button" class="btn btn-primary js-crop-and-upload">Обновить</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+
 
             </div>
             <div class="right col-lg-9">
