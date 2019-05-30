@@ -1,7 +1,6 @@
 from django import forms
 from .models import Guest
 from PIL import Image
-import os
 
 
 class PhotoForm(forms.ModelForm):

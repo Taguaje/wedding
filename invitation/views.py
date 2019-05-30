@@ -50,7 +50,6 @@ def confirm_transfer(request):
 def upload_avatar(request):
     if request.method == 'POST':
         guest = Guest.objects.get(user=request.user)
-        guest.avatar.delete()
         form = PhotoForm(request.POST, request.FILES, instance=guest)
         if form.is_valid():
             form.save()

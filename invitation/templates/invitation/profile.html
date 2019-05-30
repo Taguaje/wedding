@@ -31,7 +31,11 @@
         <div class="row">
             <div class="left col-lg-3">
                 <div class="photo-left">
-                    <img class="photo" src="{{ photoUrl }}"/>
+                    {% if photoUrl == "" %}
+                        <img class="photo" src="{% static '/invitation/jpg/user-default-grey.png' %}"/>
+                    {% else %}
+                        <img class="photo" src="{{ photoUrl }}"/>
+                    {% endif %}
                 </div>
                 <div class="name-row">
                      <h4 class="name">{{ guestName }}</h4>
@@ -56,10 +60,10 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
+                                <h4 class="modal-title">Выберите область фото</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                                <h4 class="modal-title">Выберите область фото</h4>
                             </div>
                             <div class="modal-body">
                                 <img src="" id="image" style="max-width: 100%;">
@@ -111,9 +115,13 @@
                                                 <p>Приду</p>
                                             </div>
                                         </div>
-                                        <div class="inner-container" id='toggle-container'>
-                                            <div class="toggle first">
-                                                <p>Не смогу</p>
+                                        {% if guest.isComing %}
+                                            <div class="inner-container" id='toggle-container'>
+                                        {% else %}
+                                            <div class="inner-container" id='toggle-container' style="-webkit-clip-path: inset(0px 0px 0px 50%); background-color: #D74046;">
+                                        {% endif %}
+                                        <div class="toggle first">
+                                            <p>Не смогу</p>
                                             </div>
                                             <div class="toggle second">
                                                 <p>Приду</p>
@@ -180,26 +188,30 @@
                                 </div>
                                 <div class="col">
                                     <div id="container-2" class="">
-                                <div class="inner-container">
-                                    <div class="toggle">
-                                        <p>Не Нужен</p>
-                                    </div>
-                                    <div class="toggle">
-                                        <p>нужен</p>
-                                    </div>
-                                </div>
-                                <div class="inner-container" id='toggle-container-2'>
-                                    <div class="toggle">
-                                        <p>НЕ Нужен</p>
-                                    </div>
-                                    <div class="toggle">
-                                        <p>нужен</p>
+                                        <div class="inner-container">
+                                            <div class="toggle">
+                                                <p>Не Нужен</p>
+                                            </div>
+                                            <div class="toggle">
+                                                <p>нужен</p>
+                                            </div>
+                                        </div>
+                                        < {% if guest.needTransfer %}
+                                        <div class="inner-container" id='toggle-container-2'>
+                                    {% else %}
+                                        <div class="inner-container" id='toggle-container-2' style="-webkit-clip-path: inset(0px 0px 0px 50%); background-color: #D74046;">
+                                    {% endif %}
+                                        <div class="toggle">
+                                            <p>НЕ Нужен</p>
+                                        </div>
+                                        <div class="toggle">
+                                            <p>нужен</p>
+                                        </div>
+                                        </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                                </div>
-                            </div>
-                        </div>
                         <div id="buttonChangeConfirm2" class="col-xl-2 col-lg-3 col-12 p-3">
                             <button class="profile-button m-auto" type="button" onclick="changeConfirm2(true)">ИЗМЕНИТЬ</button>
                         </div>
@@ -248,11 +260,19 @@
 
     var toggle = document.getElementById('container');
     var toggleContainer = document.getElementById('toggle-container');
-    var toggleNumber;
+    {% if guest.isComing %}
+        var toggleNumber;
+    {% else %}
+        var toggleNumber = true;
+    {% endif %}
 
     var toggle2 = document.getElementById('container-2');
     var toggleContainer2 = document.getElementById('toggle-container-2');
-    var toggleNumber2;
+    {% if guest.needTransfer %}
+        var toggleNumber2;
+    {% else %}
+        var toggleNumber2 = true;
+    {% endif %}
 
     toggle.addEventListener('click', function() {
         toggleNumber = !toggleNumber;
