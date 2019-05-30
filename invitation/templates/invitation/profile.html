@@ -8,20 +8,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Свадьба Влада и Даши</title>
+
+
     <link rel="stylesheet" href="{% static "invitation/css/profile.css" %}">
     <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.css" %}">
     <link rel="stylesheet" href="{% static "invitation/css/toggle.css" %}">
+    <link rel="stylesheet" href="{% static "invitation/css/cropper.min.css" %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Comfortaa|Marck+Script" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CClicker+Script" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Caveat|Source+Sans+Pro&amp;subset=cyrillic" rel="stylesheet">
+
+
     <script src="{% static "invitation/js/jquery-3.4.1.min.js" %}"></script>
     <script src="{% static "bootstrap/js/bootstrap.js" %}"></script>
     <script src="{% static "invitation/js/cropper.min.js" %}"></script>
     <script src="{% static "invitation/js/profile.js" %}"></script>
-    <link rel="stylesheet" href="{% static "invitation/css/cropper.min.css" %}">
-</head>
+
 </head>
 <body>
 <div class="container-fluid p-0">
@@ -38,7 +42,7 @@
                     {% endif %}
                 </div>
                 <div class="name-row">
-                     <h4 class="name">{{ guestName }}</h4>
+                    <h4 class="name">{{ guestName }}</h4>
                 </div>
                 <div class="row">
                     <form method="post" enctype="multipart/form-data" id="formUpload" action="/invite/upload_avatar/">
@@ -117,16 +121,23 @@
                                         </div>
                                         {% if guest.isComing %}
                                             <div class="inner-container" id='toggle-container'>
+                                                <div class="toggle first">
+                                                    <p>Не смогу</p>
+                                                </div>
+                                                <div class="toggle second">
+                                                    <p>Приду</p>
+                                                </div>
+                                            </div>
                                         {% else %}
                                             <div class="inner-container" id='toggle-container' style="-webkit-clip-path: inset(0px 0px 0px 50%); background-color: #D74046;">
+                                                <div class="toggle first">
+                                                    <p>Не смогу</p>
+                                                </div>
+                                                <div class="toggle second">
+                                                    <p>Приду</p>
+                                                </div>
+                                            </div>
                                         {% endif %}
-                                        <div class="toggle first">
-                                            <p>Не смогу</p>
-                                            </div>
-                                            <div class="toggle second">
-                                                <p>Приду</p>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -196,22 +207,29 @@
                                                 <p>нужен</p>
                                             </div>
                                         </div>
-                                        < {% if guest.needTransfer %}
-                                        <div class="inner-container" id='toggle-container-2'>
-                                    {% else %}
-                                        <div class="inner-container" id='toggle-container-2' style="-webkit-clip-path: inset(0px 0px 0px 50%); background-color: #D74046;">
-                                    {% endif %}
-                                        <div class="toggle">
-                                            <p>НЕ Нужен</p>
-                                        </div>
-                                        <div class="toggle">
-                                            <p>нужен</p>
-                                        </div>
-                                        </div>
-                                        </div>
+                                        {% if guest.needTransfer %}
+                                            <div class="inner-container" id='toggle-container-2'>
+                                                <div class="toggle">
+                                                    <p>НЕ Нужен</p>
+                                                </div>
+                                                <div class="toggle">
+                                                    <p>нужен</p>
+                                                </div>
+                                            </div>
+                                        {% else %}
+                                            <div class="inner-container" id='toggle-container-2' style="-webkit-clip-path: inset(0px 0px 0px 50%); background-color: #D74046;">
+                                                <div class="toggle">
+                                                    <p>НЕ Нужен</p>
+                                                </div>
+                                                <div class="toggle">
+                                                    <p>нужен</p>
+                                                </div>
+                                            </div>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         <div id="buttonChangeConfirm2" class="col-xl-2 col-lg-3 col-12 p-3">
                             <button class="profile-button m-auto" type="button" onclick="changeConfirm2(true)">ИЗМЕНИТЬ</button>
                         </div>
@@ -247,6 +265,46 @@
                         </div>
                         <div class="col-xl-2 col-lg-3 col-6 p-3">
                             <button class="profile-button m-auto" onclick="confirmTransfer()">ПОДТВЕРДИТЬ</button>
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="row text-center mt-4 bg-light profile-block">
+                    <div class="profile-img-block col-xl-2 col-lg-2 col-md-12 p-0">
+                        <img class="img-fluid" src="{% static  '/invitation/jpg/davide-baraldi-1582906-unsplash.jpg'%}">
+                    </div>
+                    {% if guest.email == "" %}
+                        <div class="profile-text-block col-xl-6 col-lg-5 col-md-11 p-3">
+                            <span class="question-title small-text">Мы планируем проводить различные голосования и активности на нашем сайте, подпишись чтобы не пропустить. А также будем высылать важные новости:)</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-6 p-3">
+                            <input id="id_email" type="email" class="form-control" placeholder="Ваш email"/>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-6 p-3">
+                            <button class="profile-button m-auto" onclick="confirmEmail()">ПОДТВЕРДИТЬ</button>
+                        </div>
+                    {% else %}
+                        <div id = "textConfirm3" class="profile-text-block col-xl-8 col-lg-7 col-md-11 p-3">
+                            <span class="question-title">Вы подписаны, мы будем вам писать на этот адрес: {{ guest.email }}</span>
+                        </div>
+                        <div id="inputConfirm3" class="col-xl-7 col-lg-4 col-md-11" hidden>
+                            <div class="row p-3 justify-content-center align-items-center">
+                                <div class="col">
+                                    <span class="question-title">Изменить email:</span>
+                                </div>
+                                <div class="col">
+                                    <input id="id_email" type="email" class="form-control" placeholder="Новый email"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="buttonChangeConfirm3" class="col-xl-2 col-lg-3 col-12 p-3">
+                            <button class="profile-button m-auto" type="button" onclick="changeEmail(true)">ИЗМЕНИТЬ</button>
+                        </div>
+                        <div id="buttonReset3" class="col-xl-3 col-lg-3 col-12 p-2" hidden>
+                            <div class="row p-3 justify-content-center justify-content-md-end">
+                                <button id="buttonConfirm" class="profile-button m-1" onclick="confirmEmail()">СОХРАНИТЬ</button>
+                                <button class="profile-button m-1 reset" type="button" onclick="changeEmail(false)">ОТМЕНА</button>
+                            </div>
                         </div>
                     {% endif %}
                 </div>
@@ -291,7 +349,7 @@
             toggleContainer2.style.cssText = '-webkit-clip-path: inset(0px 50% 0px 0px); background-color: #388e3c;';
         }
     });
-    
+
     function confirm() {
         $.post('/invite/confirm_invite/', {isComing: !toggleNumber}, OnSuccess)
     }
@@ -300,10 +358,20 @@
         $.post('/invite/confirm_transfer/', {needTransfer: !toggleNumber2}, OnSuccess)
     }
 
+    function confirmEmail() {
+        var inputEmail = document.getElementById('id_email')
+        var valid = inputEmail.checkValidity()
+        if(valid){
+            $.post('/invite/set_email/', {email: inputEmail.value}, OnSuccess)
+        }
+        else {
+            alert("Неправильный email!")
+        }
+    }
+
     function changeConfirm(visibility) {
         var input = document.getElementById('inputConfirm');
         var text = document.getElementById('textConfirm');
-        var textChange = document.getElementById('textConfirmChange');
         var button = document.getElementById('buttonConfirm');
         var buttonChange = document.getElementById('buttonChangeConfirm');
         var buttonReset = document.getElementById('buttonReset');
@@ -317,11 +385,21 @@
       function changeConfirm2(visibility) {
         var input = document.getElementById('inputConfirm2');
         var text = document.getElementById('textConfirm2');
-        var textChange = document.getElementById('textConfirmChange2');
         var button = document.getElementById('buttonConfirm2');
         var buttonChange = document.getElementById('buttonChangeConfirm2');
         var buttonReset = document.getElementById('buttonReset2');
         button.hidden = !visibility;
+        buttonReset.hidden = !visibility;
+        input.hidden = !visibility;
+        text.hidden = visibility;
+        buttonChange.hidden = visibility;
+    }
+
+    function changeEmail(visibility) {
+        var input = document.getElementById('inputConfirm3');
+        var text = document.getElementById('textConfirm3');
+        var buttonChange = document.getElementById('buttonChangeConfirm3');
+        var buttonReset = document.getElementById('buttonReset3');
         buttonReset.hidden = !visibility;
         input.hidden = !visibility;
         text.hidden = visibility;

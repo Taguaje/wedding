@@ -12,6 +12,7 @@ class Guest(models.Model):
     needTransfer = models.BooleanField(default=False)
     transferConfirm = models.BooleanField(default=False)
     avatar = models.ImageField(null=True, blank=True)
+    email = models.EmailField(blank=True)
 
     def __str__(self):
         return self.name + " " + self.family

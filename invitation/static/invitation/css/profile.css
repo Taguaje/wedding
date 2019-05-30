@@ -13,7 +13,7 @@ i{
     cursor: pointer;
 }
 
-#buttonReset button.reset,#buttonReset2 button.reset {
+#buttonReset button.reset,#buttonReset2 button.reset, #buttonReset3 button.reset {
     background-color: #D74046;
 }
 
@@ -203,6 +203,10 @@ input[type="file"] {
     }
     .question-title {
         font-size: 1.5em;
+    }
+
+    .question-title.small-text {
+        font-size: 1.2em;
     }
 
 }

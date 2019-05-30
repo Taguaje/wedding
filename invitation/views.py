@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Guest
 from .forms import PhotoForm
+from django.core.mail import EmailMessage
+from django.core import mail
 
 
 def index(request):
@@ -55,3 +57,17 @@ def upload_avatar(request):
             form.save()
             return redirect('profile')
 
+
+def set_email(request):
+    if request.method == 'POST':
+        guest = Guest.objects.get(user=request.user)
+        email = request.POST.get('email')
+        guest.email = email
+        guest.save()
+        try:
+            email = EmailMessage('Приглашение на свадьбу Влада и Даши', 'World', to=[email])
+            email.send()
+        except:
+            pass
+
+        return HttpResponse('ok', content_type='text/html')
