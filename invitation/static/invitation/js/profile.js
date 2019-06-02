@@ -53,3 +53,21 @@
       });
 
  });
+
+
+ function OnSuccessGuest (data) {
+            if(data='ok'){
+                alert('Гость создан')
+                location.reload()
+            }
+            else
+                alert('Произошла ошибка')
+
+    }
+
+function newGuest() {
+    var name = document.getElementById('guest_name').value;
+    var family = document.getElementById('guest_family').value;
+    $.post('/invite/new_guest/',{'name':name, 'family': family}, OnSuccessGuest);
+
+}

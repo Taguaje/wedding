@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Guest
+from .models import Guest, Dishes, Alcohol, Menu
 from .forms import PhotoForm
 from django.core.mail import EmailMessage
 from django.core import mail
-
+from django.contrib.auth.models import User
 
 def index(request):
     return render(request, 'invitation/home.html')
@@ -64,10 +64,108 @@ def set_email(request):
         email = request.POST.get('email')
         guest.email = email
         guest.save()
-        try:
-            email = EmailMessage('Приглашение на свадьбу Влада и Даши', 'World', to=[email])
-            email.send()
-        except:
-            pass
+        if False:
+            try:
+                email = EmailMessage('Приглашение на свадьбу Влада и Даши', 'World', to=[email])
+                email.send()
+            except:
+                pass
 
         return HttpResponse('ok', content_type='text/html')
+
+
+def menu(request):
+    guest = Guest.objects.get(user=request.user)
+    salads = Dishes.objects.filter(type=1)
+    mainDishes = Dishes.objects.filter(type=2)
+    garnish = Dishes.objects.filter(type=3)
+    alcohol = Alcohol.objects.all()
+    try:
+        saladId = guest.menu.salad.id
+    except:
+        saladId = ''
+    try:
+        mainDishId = guest.menu.mainDish.id
+    except:
+        mainDishId = ''
+    try:
+        garnishId = guest.menu.garnish.id
+    except:
+        garnishId = ''
+
+    alcoholsGuest = []
+    for drink in guest.alcohol.all():
+        alcoholsGuest.append(drink.id)
+
+
+    data = {'salads': salads, 'mainDishes': mainDishes, 'garnish': garnish, 'alcohol': alcohol, 'guest': guest,
+            'saladId': saladId, 'mainDishId': mainDishId, 'garnishId': garnishId, 'alcoholsGuest': alcoholsGuest}
+
+    return render(request, 'invitation/menu.html', data)
+
+
+def save_menu(request):
+    if request.method == 'POST':
+        guest = Guest.objects.get(user=request.user)
+        saladId = int(request.POST.get('salad'))
+        mainDishId = int(request.POST.get('mainDish'))
+        garnishId = int(request.POST.get('garnish'))
+        alcoholIds = request.POST.get('alcohol')
+
+        salad = Dishes.objects.get(id=saladId)
+        mainDish = Dishes.objects.get(id=mainDishId)
+        if garnishId != -1:
+            garnish = Dishes.objects.get(id=garnishId)
+        else:
+            garnish = None
+
+        try:
+            menuGuest = Menu.objects.get(salad = salad, mainDish = mainDish, garnish = garnish)
+        except Menu.DoesNotExist:
+            menuGuest = Menu()
+            menuGuest.salad = salad
+            menuGuest.mainDish = mainDish
+            menuGuest.garnish = garnish
+            menuGuest.save()
+        guest.menu = menuGuest
+
+        guest.alcohol.clear()
+        id = ''
+        for s in alcoholIds:
+            if s != ',':
+                id += s
+            else:
+                id = int(id)
+                alcohol = Alcohol.objects.get(id=id)
+                guest.alcohol.add(alcohol)
+                id = ''
+
+        guest.save()
+        return HttpResponse('ok', content_type='text/html')
+
+
+def view_menu(request):
+    guest = Guest.objects.get(user=request.user)
+    data = {'menu': guest.menu, 'isView': True, 'alcohol': guest.alcohol.all()}
+    return render(request,'invitation/menu.html', data)
+
+
+def new_guest(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        family = request.POST.get('family')
+        family = family.capitalize()
+        family = family.replace(" ","")
+        name = name.capitalize()
+        name = name.replace(" ", "")
+        user_name = name + family
+        password = family
+
+        new_user = User.objects.create_user(username=user_name, password=password)
+        guest = Guest()
+        guest.name = name
+        guest.family = family
+        guest.user = new_user
+        guest.save()
+        return HttpResponse('ok', content_type='text/html')
+

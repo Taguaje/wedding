@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Свадебное меню</title>
+    {% load static %}
+    {% load account %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static "invitation/css/menu.css" %}">
+    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.css" %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Marck+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CClicker+Script" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Caveat|Source+Sans+Pro&amp;subset=cyrillic" rel="stylesheet">
+    <script src="{% static "invitation/js/jquery-3.4.1.min.js" %}"></script>
+    <script src="{% static "bootstrap/js/bootstrap.js" %}"></script>
+    <script src="{% static "invitation/js/menu.js" %}"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row align-items-center text-center">
+        <div class="col-12 menu-title pt-3">Меню</div>
+    </div>
+    <div class="row p-4" id="salad-id">
+        <div class="col-12 col-lg-3 menu-img p-0">
+            <img src="{% static 'invitation/jpg/bowl-close-up-cooked-1070053.jpg' %}" class="img-fluid">
+            <div class="menu-type-title text-center">Салаты</div>
+        </div>
+        <div class="col-12 col-lg-9 pt-2 p-lg-0">
+            {% if isView %}
+                <div class="row p-0 pl-md-4 menu-item" id="id_menu_item">
+                    <div class="col-12">
+                        <div class="menu-item-title">
+                            <div class="dish-title">{{ menu.salad.name }}</div>
+                            <div class="dish-description">{{ menu.salad.description }}</div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                {% for salad in salads %}
+                    <div class="row p-0 pl-md-4 menu-item" id="id_menu_item">
+                        {% if saladId == salad.id  %}
+                            <input type="radio" class="menu-radio" id="{{ salad.id }}Sa" name="salad" checked>
+                        {% else %}
+                            <input type="radio" class="menu-radio" id="{{ salad.id }}Sa" name="salad">
+                        {% endif %}
+                        <label for="{{ salad.id }}Sa" class="col-12">
+                            <div class="menu-item-title">
+                                <div class="dish-title">{{ salad.name }}</div>
+                                <div class="dish-description">{{ salad.description }}</div>
+                            </div>
+                        </label>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row p-4" id="main-dish-id">
+        <div class="col-12 col-lg-3 menu-img p-0">
+            <img src="{% static 'invitation/jpg/appetizer-bowl-delicious-1640772.jpg' %}" class="img-fluid">
+            <div class="menu-type-title text-center">Основное блюдо</div>
+        </div>
+        <div class="col-12 col-lg-9 pt-3 p-lg-0">
+            {% if isView %}
+                <div class="row p-0 pl-md-4 menu-item" id="id_menu_item">
+                    <div class="col-12">
+                        <div class="menu-item-title">
+                            <div class="dish-title">{{ menu.mainDish.name }}</div>
+                            <div class="dish-description">{{ menu.mainDish.description }}</div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                {% for mainDish in mainDishes %}
+                    <div class="row p-0 pl-md-4 menu-item" id="id_menu_item">
+                        {% if mainDishId == mainDish.id  %}
+                            <input type="radio" class="menu-radio" id="{{ mainDish.id }}Ma" name="mainDish" checked>
+                        {% else %}
+                            <input type="radio" class="menu-radio" id="{{ mainDish.id }}Ma" name="mainDish">
+                        {% endif %}
+                        <label for="{{ mainDish.id }}Ma" class="col-12 mb-0" onclick="changeVisibility('{{mainDish.name}}')">
+                            <div class="menu-item-title">
+                                <div class="dish-title">{{ mainDish.name }}</div>
+                                <div class="dish-description">{{ mainDish.description }}</div>
+                            </div>
+                        </label>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    {% if isView %}
+        {% if menu.garnish != None %}
+            <div class="row p-4" id="garnish-id" >
+                <div class="col-12 col-lg-3 menu-img p-0">
+                    <img src="{% static 'invitation/jpg/alcoholic-beverages-close-up-cuisine-541216.jpg' %}" class="img-fluid">
+                    <div class="menu-type-title text-center">Гарнир</div>
+                </div>
+                <div class="col-12 col-lg-9 pt-3 p-lg-0">
+                    <div class="row p-0 pl-md-4 menu-item" id="id_menu_item">
+                        <div class="col-12">
+                            <div class="menu-item-title">
+                                <div class="dish-title">{{ menu.garnish.name }}</div>
+                                <div class="dish-description">{{ menu.garnish.description }}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        {% endif %}
+    {% else %}
+        {% if garnishId == '' %}
+            <div class="row p-4" id="garnish-id" hidden>
+                <div class="col-12 col-lg-3 menu-img p-0">
+                    <img src="{% static 'invitation/jpg/alcoholic-beverages-close-up-cuisine-541216.jpg' %}" class="img-fluid">
+                    <div class="menu-type-title text-center">Гарнир</div>
+                </div>
+                <div class="col-12 col-lg-9 pt-3 p-lg-0">
+                    {% for garn in garnish %}
+                        <div class="row p-0 pl-md-4 menu-item" id="id_menu_item">
+                            <input type="radio" class="menu-radio" id="{{ garn.id }}Ga" name="garnish">
+                            <label for="{{ garn.id }}Ga" class="col-12 mb-0">
+                                <div class="menu-item-title">
+                                    <div class="dish-title">{{ garn.name }}</div>
+                                    <div class="dish-description">{{ garn.description }}</div>
+                                </div>
+                            </label>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% else %}
+             <div class="row p-4" id="garnish-id">
+                <div class="col-12 col-lg-3 menu-img p-0">
+                    <img src="{% static 'invitation/jpg/alcoholic-beverages-close-up-cuisine-541216.jpg' %}" class="img-fluid">
+                    <div class="menu-type-title text-center">Гарнир</div>
+                </div>
+                <div class="col-12 col-lg-9 pt-3 p-lg-0">
+                    {% for garn in garnish %}
+                        <div class="row p-0 pl-md-4 menu-item" id="id_menu_item">
+                            {% if garnishId == garn.id  %}
+                                <input type="radio" class="menu-radio" id="{{ garn.id }}Ga" name="garnish" checked>
+                            {% else %}
+                                <input type="radio" class="menu-radio" id="{{ garn.id }}Ga" name="garnish">
+                            {% endif %}
+                            <label for="{{ garn.id }}Ga" class="col-12 mb-0">
+                                <div class="menu-item-title">
+                                    <div class="dish-title">{{ garn.name }}</div>
+                                    <div class="dish-description">{{ garn.description }}</div>
+                                </div>
+                            </label>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    {% endif %}
+
+    <div class="row p-4" id="alcohol-id">
+        <div class="col-12 col-lg-3 menu-img p-0">
+            <img src="{% static 'invitation/jpg/alcohol-bar-beer-989711.jpg' %}" class="img-fluid">
+            <div class="menu-type-title text-center">Алкоголь</div>
+            <div class="menu-type-tip text-center">(можно выбрать несколько)</div>
+        </div>
+        <div class="col-12 col-lg-9 pt-3 p-lg-0">
+            {% if isView %}
+                {% for drink in alcohol %}
+                    <div class="row p-0 pl-md-4 menu-item" id="id_menu_item">
+                        <div class="col-12">
+                            <div class="menu-item-title">
+                                <div class="dish-title">{{ drink.name }}</div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                {% for drink in alcohol %}
+                    <div class="row p-0 pl-md-4 menu-item" id="id_menu_item">
+                        {% if drink.id in alcoholsGuest %}
+                            <input type="checkbox" class="menu-radio" id="{{ drink.id }}Al" name="alcohol" checked>
+                        {% else %}
+                            <input type="checkbox" class="menu-radio" id="{{ drink.id }}Al" name="alcohol">
+                        {% endif %}
+                        <label for="{{ drink.id }}Al" class="col-12 mb-0 checkbox">
+                            <div class="menu-item-title">
+                                <div class="dish-title">{{ drink.name }}</div>
+                            </div>
+                        </label>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    <div class="row p-4 text-center justify-content-center">
+        {% if not isView %}
+            <button class="rsvp m-1" onclick="saveMenu()">Подтвердить</button>
+        {% endif %}
+        <button class="rsvp m-1 return" onclick="location.href='/invite/profile'">Назад</button>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript">
+       // using jQuery
+    function getCookie(name) {
+        cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            cookies = document.cookie.split(';');
+            for (i = 0; i < cookies.length; i++) {
+                cookie = jQuery.trim(cookies[i]);
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    csrftoken = getCookie('csrftoken');
+
+    function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    $.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+    });
+</script>
+</html>

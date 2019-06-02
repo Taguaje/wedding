@@ -18,3 +18,7 @@ body{
 .rsvp-flower{
   width: 50%;
 }
+
+#name,#second_name{
+    text-transform: capitalize;
+}

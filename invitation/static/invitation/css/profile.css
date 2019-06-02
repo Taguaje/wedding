@@ -13,8 +13,12 @@ i{
     cursor: pointer;
 }
 
-#buttonReset button.reset,#buttonReset2 button.reset, #buttonReset3 button.reset {
+#buttonReset button.reset,#buttonReset2 button.reset, #buttonReset3 button.reset, #buttonReset4 {
     background-color: #D74046;
+}
+
+#buttonReset4{
+    height: 40px;
 }
 
 .container {
@@ -121,6 +125,12 @@ main {
     text-decoration: none;
     color: var(--secondary-bg-color);
 }
+
+.profile-button a, .profile-button a:hover{
+    text-decoration: none;
+    color: #fff;
+}
+
 
 .question-title{
   font-size: 1em;

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load staticfiles %}
+    {% load account %}
+    <title>Свадьба Даши и Влада</title>
+    <script src="{% static '/invitation/js/jquery-3.4.1.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.css' %}">
+    <script src="{% static '/bootstrap/js/bootstrap.js' %}"></script>
+</head>
+<body style="height: 100vh;" class="bg-light">
+<div class="h-100 container-fluid col-md-3">
+    <div class="h-75 row align-items-center">
+        <div class="col p-2">
+            <h3 class="text-center"><a class="text-dark" href="/">Свадьба Даши и Влада</a></h3>
+            <form class="pt-2" method="post" action="{% url 'account_logout' %}">
+                {% csrf_token %}
+                <p class="text-center">Вы действительно хотите выйти?</p>
+                <button class="btn btn-primary btn-block" type="submit">Выйти</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
