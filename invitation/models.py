@@ -24,7 +24,11 @@ class Menu(models.Model):
     garnish = models.ForeignKey(Dishes, on_delete=models.SET_NULL, blank=True, null=True, related_name="menu_garnish")
 
     def __str__(self):
-        return self.salad + ", " + self.mainDish + ', ' + self.garnish
+        try:
+            garnishName = self.garnish.name
+        except:
+            garnishName = ""
+        return self.salad.name + ", " + self.mainDish.name + ', ' + garnishName
 
 
 # Create your models here.
