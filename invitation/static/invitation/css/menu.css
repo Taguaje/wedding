@@ -32,6 +32,11 @@
     z-index: 0;
 }
 
+.menu-img img{
+    height: 100%;
+    width:inherit;
+    object-fit: cover;
+}
 .menu-type-title{
     color: #fff;
     font-family: "Comfortaa", serif;
