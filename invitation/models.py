@@ -35,7 +35,7 @@ class Menu(models.Model):
 class Guest(models.Model):
     name = models.CharField(max_length=100)
     family = models.CharField(max_length=100)
-    middleName = models.CharField(max_length=100, default='')
+    middleName = models.CharField(max_length=100, default='', blank=True)
     isComing = models.BooleanField(default=True)
     confirm = models.BooleanField(default=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -43,7 +43,7 @@ class Guest(models.Model):
     transferConfirm = models.BooleanField(default=False)
     avatar = models.ImageField(null=True, blank=True)
     email = models.EmailField(blank=True)
-    menu = models.ForeignKey(Menu, on_delete=models.SET_NULL, null=True)
+    menu = models.ForeignKey(Menu, on_delete=models.SET_NULL, null=True, blank=True)
     alcohol = models.ManyToManyField(Alcohol, blank=True, null=True)
     guestsIsVisible = models.BooleanField(default=True)
     description = models.CharField(max_length=200, default='')
