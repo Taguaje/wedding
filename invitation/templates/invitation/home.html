@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Свадьба Влада и Даши</title>
     <link rel="stylesheet" href="{% static "invitation/css/flipclock.css" %}">
+    <link rel="stylesheet" href="{% static "invitation/css/loader.css" %}">
     <link rel="stylesheet" href="{% static "invitation/css/flipclock-resposive.css" %}">
     <link rel="stylesheet" href="{% static "invitation/css/timeline-lovestory.css" %}">
     <link rel="stylesheet" href="{% static "invitation/css/program-timeline.css" %}">
@@ -19,27 +20,46 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CClicker+Script" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Caveat|Source+Sans+Pro&amp;subset=cyrillic" rel="stylesheet">
     <script src="{% static "invitation/js/jquery-3.4.1.min.js" %}"></script>
+    <script src="{% static "invitation/js/loader.js" %}"></script>
     <script src="{% static "invitation/js/flipclock.js" %}"></script>
     <script src="{% static "bootstrap/js/bootstrap.js" %}"></script>
 </head>
 <body data-spy="scroll" data-target="#navbarSupportedContent">
+<div id="preloader" style="display: none;">
+    <div class="alignment">
+        <div class="v-align center-middle">
+            <div class="heart-animation one">
+                <i class="icon icon-heart"></i>
+            </div>
+            <div class="heart-animation two">
+                <i class="icon icon-heart"></i>
+            </div>
+            <div class="heart-animation three">
+                <i class="icon icon-heart"></i>
+            </div>
+            <div class="heart-animation four">
+                <i class="icon icon-heart"></i>
+            </div>
+        </div>
+    </div>
+</div>
 <div id="info" class="text-center page-info container-fluid p-0">
     <nav id="menu" class="navbar navbar-expand navbar-dark text-white fixed-top pb-0 pt-1 pt-sm-2 pl-1 pl-sm-3 pr-1 pr-sm-1">
 
-            <ul class="navbar-nav mx-auto align-items-center" id="navbarSupportedContent">
-                <li class="nav-item">
-                    <a class="nav-link pr-2 p-1 p-sm-2" href="#info">ГЛАВНАЯ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link pr-2 p-1 p-sm-2" href="#lovestory">НАША ИСТОРИЯ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link pr-2 p-1 p-sm-2" href="#how-where">ГДЕ/КОГДА/КАК</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link last pr-2 p-1 p-sm-2" href="#">ФОТО</a>
-                </li>
-            </ul>
+        <ul class="navbar-nav mx-auto align-items-center" id="navbarSupportedContent">
+            <li class="nav-item">
+                <a class="nav-link pr-2 p-1 p-sm-2" href="#info">ГЛАВНАЯ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pr-2 p-1 p-sm-2" href="#lovestory">НАША ИСТОРИЯ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pr-2 p-1 p-sm-2" href="#how-where">ГДЕ/КОГДА/КАК</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link last pr-2 p-1 p-sm-2" href="#">ФОТО</a>
+            </li>
+        </ul>
 
     </nav>
     <div class="wrapper">
@@ -90,9 +110,9 @@
         </div>
     </div>
     <div class="container-fluid p-0">
-            <div class="section-title layout-1 pb-2">
-                <h2 class="title">Love story</h2>
-            </div>
+        <div class="section-title layout-1 pb-2">
+            <h2 class="title">Love story</h2>
+        </div>
 
         <ul class="time-line layout-1 pt-2">
             <li>
@@ -138,8 +158,8 @@
                         <div class="date">23 июня 2015</div>
                         <h3 class="title">Первое "свидание"</h3>
                         <div class="discription">Однажды летом 2015 года, когда Влад приезжает из Москвы на летние каникулы, чтобы отдохнуть от учебы и наконец-то порыбачить на родной Ахтубе, а Даша возвращается со своего второго путешествия за лето, переполненная эмоциями, впечатлениями и надеждами, выходит фильм «Бумажные города». Почему бы вместе не сходить?
-Поход в кино не рассматривался никем, как свидание. Честное слово! Да и не было оно свиданием, просто встреча давних друзей. Но вдруг что-то неожиданно екнуло, и мы начали видеться почти каждый день. Возможно, просто пришло наше время. И вот, мы уже бесконечно разговариваем обо всем на свете, обходя Волжский и его окрестности.
-</div>
+                            Поход в кино не рассматривался никем, как свидание. Честное слово! Да и не было оно свиданием, просто встреча давних друзей. Но вдруг что-то неожиданно екнуло, и мы начали видеться почти каждый день. Возможно, просто пришло наше время. И вот, мы уже бесконечно разговариваем обо всем на свете, обходя Волжский и его окрестности.
+                        </div>
                     </div>
                 </div>
             </li>
@@ -298,7 +318,6 @@
 
 
 </div>
-
 </body>
 <script type="text/javascript">
     var clock;

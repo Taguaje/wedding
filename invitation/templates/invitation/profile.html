@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.css" %}">
     <link rel="stylesheet" href="{% static "invitation/css/toggle.css" %}">
     <link rel="stylesheet" href="{% static "invitation/css/cropper.min.css" %}">
+    <link rel="stylesheet" href="{% static "invitation/css/loader.css" %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Comfortaa|Marck+Script" rel="stylesheet">
@@ -21,6 +22,7 @@
 
 
     <script src="{% static "invitation/js/jquery-3.4.1.min.js" %}"></script>
+    <script src="{% static "invitation/js/loader.js" %}"></script>
     <script src="{% static "invitation/js/popper.min.js" %}"></script>
     <script src="{% static "bootstrap/js/bootstrap.js" %}"></script>
     <script src="{% static "invitation/js/cropper.min.js" %}"></script>
@@ -29,6 +31,24 @@
 
 </head>
 <body>
+<div id="preloader" style="display: none;">
+    <div class="alignment">
+        <div class="v-align center-middle">
+            <div class="heart-animation one">
+                <i class="icon icon-heart"></i>
+            </div>
+            <div class="heart-animation two">
+                <i class="icon icon-heart"></i>
+            </div>
+            <div class="heart-animation three">
+                <i class="icon icon-heart"></i>
+            </div>
+            <div class="heart-animation four">
+                <i class="icon icon-heart"></i>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container-fluid p-0">
     <header>
     </header>
