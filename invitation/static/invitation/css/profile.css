@@ -154,11 +154,6 @@ main {
     font-size: 1em;
 }
 
-.profile-img-block img{
-
-}
-
-
 input[type="file"] {
     display: none;
 }
@@ -206,7 +201,7 @@ input[type="file"] {
 }
 
 
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
     .profile-button {
         font-size: 1em;
         height: 56px;
@@ -214,9 +209,28 @@ input[type="file"] {
     .question-title {
         font-size: 1.5em;
     }
+}
 
+@media (min-width: 992px){
+    .question-title.small-text {
+        font-size: 0.8em;
+    }
+}
+
+@media (min-width: 1110px){
+    .question-title.small-text {
+        font-size: 0.9em;
+    }
+}
+
+@media (min-width: 1400px){
+    .question-title.small-text {
+        font-size: 1.1em;
+    }
+}
+
+@media (min-width: 1750px){
     .question-title.small-text {
         font-size: 1.2em;
     }
-
 }

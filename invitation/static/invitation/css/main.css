@@ -96,6 +96,8 @@ span.swirl-right {
 
 .how-png{
     max-width: 80%;
+    position: relative;
+    top: 10%;
 }
 
 .how-text{

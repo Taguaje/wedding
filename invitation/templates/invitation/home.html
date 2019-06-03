@@ -235,10 +235,10 @@
         <img src="{% static "/invitation/jpg/date-flowers.png" %}" class="img-fluid">
     </div>
     <div class="row pt-5 m-0">
-        <div class="col-md-6 col-sm-12 text-center pb-5">
+        <div class="col-xl-5 col-lg-5 col-md-12 text-center pb-md-5">
             <img src="{% static "/invitation/jpg/mayak.jpg" %}" class="how-png mx-auto">
         </div>
-        <div class="col-md-6 col-sm-12">
+        <div class="col-xl-7 col-lg-7 col-md-12">
             <div class="row text-center align-items-center">
                 <div class="col-6 border-dark border-right">
                     <h1 class="title">Где</h1>
@@ -262,55 +262,55 @@
                     </div>
                 </div>
             </div>
-            <div class="row m-auto pt-5 text-center">
-                <div class="row m-auto">
-                    <h1 class="title">Как</h1>
+        </div>
+        <div class="col-12 m-auto">
+            <h1 class="title">Как</h1>
+        </div>
+        <div class="col-12">
+            <div class="input-flex-container">
+                <input type="radio" name="timeline-dot" data-description="1910" checked>
+                <div class="dot-info" data-description="1910">
+                    <span class="year">15:30</span>
+                    <span class="label">Сбор гостей</span>
+                    <img class="dot-icon" src="{% static "invitation/jpg/icons8-коммуникации-64.png" %}">
                 </div>
-                <div class="input-flex-container">
-                    <input type="radio" name="timeline-dot" data-description="1910" checked>
-                    <div class="dot-info" data-description="1910">
-                        <span class="year">15:30</span>
-                        <span class="label">Сбор гостей</span>
-                        <img class="dot-icon" src="{% static "invitation/jpg/icons8-коммуникации-64.png" %}">
-                    </div>
-                    <input type="radio" name="timeline-dot" data-description="1920">
-                    <div class="dot-info" data-description="1920">
-                        <span class="year">16:00</span>
-                        <span class="label">Регистрация</span>
-                        <img class="dot-icon" src="{% static "invitation/jpg/icons8-кольцо-всевластия.svg" %}">
-                    </div>
-                    <input type="radio" name="timeline-dot" data-description="1930">
-                    <div class="dot-info" data-description="1930">
-                        <span class="year">16:30</span>
-                        <span class="label">Фуршет</span>
-                        <img class="dot-icon" src="{% static "invitation/jpg/icons8-шампанское-512.png" %}">
-                    </div>
-                    <input type="radio" name="timeline-dot" data-description="1940">
-                    <div class="dot-info" data-description="1940">
-                        <span class="year">17:00</span>
-                        <span class="label">Банкет</span>
-                        <img class="dot-icon" src="{% static "invitation/jpg/icons8-посуда-512.png" %}">
-                    </div>
-                    <input type="radio" name="timeline-dot" data-description="1950">
-                    <div class="dot-info" data-description="1950">
-                        <span class="year">21:00</span>
-                        <span class="label">Торт</span>
-                        <img class="dot-icon" src="{% static "invitation/jpg/icons8-двойной-шоколадный-торт-64.png" %}">
-                    </div>
-                    <input type="radio" name="timeline-dot" data-description="1960" class="last-event">
-                    <div class="dot-info" data-description="1960">
-                        <span class="year">22:00</span>
-                        <span class="label">Afterparty</span>
-                        <img class="dot-icon" src="{% static "invitation/jpg/icons8-танцы-64.png" %}">
-                    </div>
-                    <div id="timeline-descriptions-wrapper">
-                        <p data-description="1910">Мы вас ждем:)</p>
-                        <p data-description="1920">Регистрация может содержать очень трогательные сцены, будьте осторожны!</p>
-                        <p data-description="1930">Пить, есть сладости, поздравлять, фоткаться - время пришло ^^</p>
-                        <p data-description="1940">Тут будет все.</p>
-                        <p data-description="1950">Успей оторвать себе самый большой кусок! Есть разные вкусы)</p>
-                        <p data-description="1960">Далеко не убегай, это твое время:)</p>
-                    </div>
+                <input type="radio" name="timeline-dot" data-description="1920">
+                <div class="dot-info" data-description="1920">
+                    <span class="year">16:00</span>
+                    <span class="label">Регистрация</span>
+                    <img class="dot-icon" src="{% static "invitation/jpg/icons8-кольцо-всевластия.svg" %}">
+                </div>
+                <input type="radio" name="timeline-dot" data-description="1930">
+                <div class="dot-info" data-description="1930">
+                    <span class="year">16:30</span>
+                    <span class="label">Фуршет</span>
+                    <img class="dot-icon" src="{% static "invitation/jpg/icons8-шампанское-512.png" %}">
+                </div>
+                <input type="radio" name="timeline-dot" data-description="1940">
+                <div class="dot-info" data-description="1940">
+                    <span class="year">17:00</span>
+                    <span class="label">Банкет</span>
+                    <img class="dot-icon" src="{% static "invitation/jpg/icons8-посуда-512.png" %}">
+                </div>
+                <input type="radio" name="timeline-dot" data-description="1950">
+                <div class="dot-info" data-description="1950">
+                    <span class="year">21:00</span>
+                    <span class="label">Торт</span>
+                    <img class="dot-icon" src="{% static "invitation/jpg/icons8-двойной-шоколадный-торт-64.png" %}">
+                </div>
+                <input type="radio" name="timeline-dot" data-description="1960" class="last-event">
+                <div class="dot-info" data-description="1960">
+                    <span class="year">22:00</span>
+                    <span class="label">Afterparty</span>
+                    <img class="dot-icon" src="{% static "invitation/jpg/icons8-танцы-64.png" %}">
+                </div>
+                <div id="timeline-descriptions-wrapper">
+                    <p data-description="1910">Мы вас ждем:)</p>
+                    <p data-description="1920">Регистрация может содержать очень трогательные сцены, будьте осторожны!</p>
+                    <p data-description="1930">Пить, есть сладости, поздравлять, фоткаться - время пришло ^^</p>
+                    <p data-description="1940">Тут будет все.</p>
+                    <p data-description="1950">Успей оторвать себе самый большой кусок! Есть разные вкусы)</p>
+                    <p data-description="1960">Далеко не убегай, это твое время:)</p>
                 </div>
             </div>
         </div>

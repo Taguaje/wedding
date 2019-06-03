@@ -62,7 +62,7 @@
                         <img class="photo" src="{{ photoUrl }}"/>
                     {% endif %}
                 </div>
-                <div class="name-row">
+                <div class="name-row text-center">
                     <h4 class="name">{{ guestName }}</h4>
                 </div>
                 <div class="row">
@@ -116,15 +116,15 @@
                         <img class="img-fluid" src="{% static  '/invitation/jpg/sweet-ice-cream-photography-170766-unsplash.jpg'%}">
                     </div>
                     {% if guest.confirm %}
-                        <div id = "textConfirm" class="profile-text-block col-xl-8 col-lg-7 col-md-11 p-3">
+                        <div id = "textConfirm" class="profile-text-block col-xl-8 col-lg-7 col-md-12 p-0 pl-lg-3">
                             {% if guest.isComing %}
                                 <span class="question-title">Ура! Ждем тебя на нашей свадьбе с нетерпением :)</span>
                             {% else %}
                                 <span class="question-title">Жалко, что тебя не будет :(</span>
                             {% endif %}
                         </div>
-                        <div id="inputConfirm" class="col-xl-7 col-lg-4 col-md-11" hidden>
-                            <div class="row p-3 justify-content-center align-items-center">
+                        <div id="inputConfirm" class="col-xl-6 col-lg-6 col-md-12 p-3 p-lg-1" hidden>
+                            <div class="row justify-content-center align-items-center">
                                 <div class="col">
                                     <span class="question-title">Изменить решение:</span>
                                 </div>
@@ -161,21 +161,24 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="buttonChangeConfirm" class="col-xl-2 col-lg-3 col-12 p-3">
-                            <button class="profile-button m-auto" type="button" onclick="changeConfirm(true)">ИЗМЕНИТЬ</button>
+                        <div id="buttonChangeConfirm" class="col-xl-2 col-lg-3 col-12 p-0">
+                            <div class="row m-3 justify-content-center justify-content-lg-end">
+                                <button class="profile-button" type="button" onclick="changeConfirm(true)">ИЗМЕНИТЬ</button>
+                            </div>
                         </div>
-                        <div id="buttonReset" class="col-xl-3 col-lg-3 col-12 p-2" hidden>
-                            <div class="row p-3 justify-content-center justify-content-md-end">
+                        <div id="buttonReset" class="col-xl-4 col-lg-4 col-md-12 p-0" hidden>
+                            <div class="row m-2 justify-content-center justify-content-lg-end">
                                 <button id="buttonConfirm" class="profile-button m-1" onclick="confirm()">ПОДТВЕРДИТЬ</button>
                                 <button class="profile-button m-1 reset" type="button" onclick="changeConfirm(false)">ОТМЕНА</button>
                             </div>
                         </div>
                     {% else %}
-                        <div class="profile-text-block col-xl-5 col-lg-4 col-md-11 p-3">
+                        <div class="profile-text-block col-xl-5 col-lg-5 col-md-12 p-0 pl-lg-3">
                             <span class="question-title">Мы будет очень рады, если ты прийдешь!</span>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-6 p-3">
-                            <div id="container" class="">
+                        <div class="col-xl-5 col-lg-5 col-6 p-0">
+                            <div class="row m-2 justify-content-center justify-content-lg-end">
+                                <div id="container" class="">
                                 <div class="inner-container">
                                     <div class="toggle first">
                                         <p>Не смогу</p>
@@ -193,9 +196,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-xl-2 col-lg-3 col-6 p-3">
-                            <button class="profile-button m-auto" onclick="confirm()">ПОДТВЕРДИТЬ</button>
+                                <button class="profile-button m-1" onclick="confirm()">ПОДТВЕРДИТЬ</button>
+                            </div>
                         </div>
                     {% endif %}
                 </div>
@@ -204,15 +206,15 @@
                         <img class="img-fluid" src="{% static  '/invitation/jpg/thomas-curryer-97018-unsplash.jpg'%}">
                     </div>
                     {% if guest.transferConfirm %}
-                        <div id = "textConfirm2" class="profile-text-block col-xl-8 col-lg-7 col-md-11 p-3">
+                        <div id = "textConfirm2" class="profile-text-block col-xl-8 col-lg-7 col-md-12 p-lg-2 p-3">
                             {% if guest.needTransfer %}
                                 <span class="question-title">Мы свяжемся с тобой, ближе к свадьбе, и уточним детали</span>
                             {% else %}
                                 <span class="question-title">Ждем тебя 2 августа в 15:30 в парк-отеле "Пересвет"</span>
                             {% endif %}
                         </div>
-                        <div id="inputConfirm2" class="col-xl-7 col-lg-4 col-md-11" hidden>
-                            <div class="row p-3 justify-content-center align-items-center">
+                        <div id="inputConfirm2" class="col-xl-6 col-lg-6 col-md-12 p-3 p-lg-1" hidden>
+                            <div class="row justify-content-center align-items-center">
                                 <div class="col">
                                     <span class="question-title">Изменить решение:</span>
                                 </div>
@@ -249,45 +251,47 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="buttonChangeConfirm2" class="col-xl-2 col-lg-3 col-12 p-3">
-                            <button class="profile-button m-auto" type="button" onclick="changeConfirm2(true)">ИЗМЕНИТЬ</button>
+                        <div id="buttonChangeConfirm2" class="col-xl-2 col-lg-3 col-12 p-0">
+                            <div class="row m-3 justify-content-center justify-content-lg-end">
+                                <button class="profile-button" type="button" onclick="changeConfirm2(true)">ИЗМЕНИТЬ</button>
+                            </div>
                         </div>
-                        <div id="buttonReset2" class="col-xl-3 col-lg-3 col-12 p-2" hidden>
-                            <div class="row p-3 justify-content-center justify-content-md-end">
+                        <div id="buttonReset2" class="col-xl-4 col-lg-4 col-md-12 p-0" hidden>
+                            <div class="row m-2 justify-content-center justify-content-lg-end">
                                 <button id="buttonConfirm2" class="profile-button m-1" onclick="confirmTransfer()">ПОДТВЕРДИТЬ</button>
                                 <button class="profile-button m-1 reset" type="button" onclick="changeConfirm2(false)">ОТМЕНА</button>
                             </div>
                         </div>
                     {% else %}
-                        <div class="profile-text-block col-xl-5 col-lg-4 col-md-11 p-3">
-                            <span class="question-title">Мы можем помочь тебе добраться до места нашей свадьбы. Нужен ли тебе трансфер?</span>
+                        <div class="profile-text-block col-xl-5 col-lg-5 col-md-11 p-0 pl-lg-3">
+                            <span class="question-title">Мы можем помочь тебе добраться до места нашей свадьбы.</span>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-6 p-3">
-                            <div id="container-2" class="">
-                                <div class="inner-container">
-                                    <div class="toggle">
-                                        <p>Не Нужен</p>
+                        <div class="col-xl-5 col-lg-5 col-6 p-0">
+                            <div class="row m-2 justify-content-center justify-content-lg-end">
+                                <div id="container-2" class="">
+                                    <div class="inner-container">
+                                        <div class="toggle">
+                                            <p>Я сам</p>
+                                        </div>
+                                        <div class="toggle">
+                                            <p>Нужно</p>
+                                        </div>
                                     </div>
-                                    <div class="toggle">
-                                        <p>нужен</p>
+                                    <div class="inner-container" id='toggle-container-2'>
+                                        <div class="toggle">
+                                            <p>я сам</p>
+                                        </div>
+                                        <div class="toggle">
+                                            <p>Нужно</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="inner-container" id='toggle-container-2'>
-                                    <div class="toggle">
-                                        <p>НЕ Нужен</p>
-                                    </div>
-                                    <div class="toggle">
-                                        <p>нужен</p>
-                                    </div>
-                                </div>
+                                {% if guest.confirm %}
+                                    <button class="profile-button m-1" onclick="confirmTransfer()">ПОДТВЕРДИТЬ</button>
+                                {% else %}
+                                    <button id="bt1" class="profile-button m-1" role="button" data-toggle="popover" data-placement="top" data-trigger="focus" data-content="Сначала нужно подтвердить приглашение">ПОДТВЕРДИТЬ</button>
+                                {% endif %}
                             </div>
-                        </div>
-                        <div class="col-xl-2 col-lg-3 col-6 p-3">
-                            {% if guest.confirm %}
-                                <button class="profile-button m-auto" onclick="confirmTransfer()">ПОДТВЕРДИТЬ</button>
-                            {% else %}
-                                <button id="bt1" class="profile-button m-auto" role="button" data-toggle="popover" data-placement="top" data-trigger="focus" data-content="Сначала нужно подтвердить приглашение">ПОДТВЕРДИТЬ</button>
-                            {% endif %}
                         </div>
                     {% endif %}
                 </div>
@@ -296,20 +300,23 @@
                         <img class="img-fluid" src="{% static  '/invitation/jpg/davide-baraldi-1582906-unsplash.jpg'%}">
                     </div>
                     {% if guest.email == "" %}
-                        <div class="profile-text-block col-xl-6 col-lg-5 col-md-11 p-3">
-                            <span class="question-title small-text">Мы планируем проводить различные голосования и активности на нашем сайте, подпишись чтобы не пропустить. А также будем высылать важные новости:)</span>
+                        <div class="profile-text-block col-xl-6 col-lg-4 col-md-12 p-2">
+                            <span class="question-title">Подпишись на новости свадьбы!</span>
+                             <button id="bt3" class="profile-button ml-1" role="button" data-toggle="popover" data-placement="top" data-trigger="focus" data-content="Мы планируем проводить различные голосования и активности на нашем сайте, подпишись чтобы не пропустить. А также будем высылать важные новости:)">ЗАЧЕМ?</button>
                         </div>
-                        <div class="col-xl-2 col-lg-2 col-6 p-3">
+                        <div class="col-xl-2 col-lg-3 col-12 p-1">
                             <input id="id_email" type="email" class="form-control" placeholder="Ваш email"/>
                         </div>
-                        <div class="col-xl-2 col-lg-3 col-6 p-3">
-                            <button class="profile-button m-auto" onclick="confirmEmail()">ПОДТВЕРДИТЬ</button>
+                        <div class="col-xl-2 col-lg-3 col-12 p-1">
+                            <div class="row m-2 justify-content-center justify-content-lg-end">
+                                <button class="profile-button m-1" onclick="confirmEmail()">ПОДВЕРДИТЬ</button>
+                            </div>
                         </div>
                     {% else %}
                         <div id = "textConfirm3" class="profile-text-block col-xl-8 col-lg-7 col-md-11 p-3">
                             <span class="question-title">Вы подписаны, мы будем вам писать на этот адрес: {{ guest.email }}</span>
                         </div>
-                        <div id="inputConfirm3" class="col-xl-7 col-lg-4 col-md-11" hidden>
+                        <div id="inputConfirm3" class="col-xl-6 col-lg-6 col-md-12" hidden>
                             <div class="row p-3 justify-content-center align-items-center">
                                 <div class="col">
                                     <span class="question-title">Изменить email:</span>
@@ -319,11 +326,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="buttonChangeConfirm3" class="col-xl-2 col-lg-3 col-12 p-3">
-                            <button class="profile-button m-auto" type="button" onclick="changeEmail(true)">ИЗМЕНИТЬ</button>
+                        <div id="buttonChangeConfirm3" class="col-xl-2 col-lg-3 col-12 p-1">
+                            <div class="row m-2 justify-content-center justify-content-lg-end">
+                                <button class="profile-button m-1" type="button" onclick="changeEmail(true)">ИЗМЕНИТЬ</button>
+                            </div>
                         </div>
-                        <div id="buttonReset3" class="col-xl-3 col-lg-3 col-12 p-2" hidden>
-                            <div class="row p-3 justify-content-center justify-content-md-end">
+                        <div id="buttonReset3" class="col-xl-4 col-lg-4 col-md-12 p-0" hidden>
+                            <div class="row p-3 justify-content-center justify-content-lg-end">
                                 <button id="buttonConfirm" class="profile-button m-1" onclick="confirmEmail()">СОХРАНИТЬ</button>
                                 <button class="profile-button m-1 reset" type="button" onclick="changeEmail(false)">ОТМЕНА</button>
                             </div>
@@ -335,28 +344,30 @@
                         <img class="img-fluid" src="{% static  '/invitation/jpg/sweet-ice-cream-photography-501897-unsplash.jpg'%}">
                     </div>
                     {% if guest.menu != None %}
-                        <div class="profile-text-block col-xl-7 col-lg-5 col-md-12 p-3">
+                        <div class="profile-text-block col-xl-6 col-lg-6 col-md-12 p-md-1 p-2">
                             <span class="question-title">Ты сделал свой выбор, все будет очень вкусно!</span>
                         </div>
                     {% else %}
-                        <div class="profile-text-block col-xl-8 col-lg-7 col-md-12 p-3">
-                            <span class="question-title">Мы хотим знать, что придеться вам по вкусу! Вам нужно выбрать салат, основное блюдо  и алкогольные предпочтения:)</span>
+                        <div class="profile-text-block col-xl-8 col-lg-8 col-md-12 p-md-1 p-2">
+                            <span class="question-title">Мы хотим знать, что придеться вам по вкусу! Выберите основные позиции:)</span>
                         </div>
                     {% endif %}
                     {% if guest.menu != None %}
-                        <div class="col-xl-3 col-lg-5 col-12 p-3">
+                        <div class="col-xl-4 col-lg-4 col-12 p-3">
                             <div class="row p-0 justify-content-lg-end justify-content-center">
                                 <button class="profile-button m-1" onclick="location.href='/invite/view_menu/'">ПОСМОТРЕТЬ</button>
                                 <button class="profile-button m-1" onclick="location.href='/invite/menu/'">ИЗМЕНИТЬ</button>
                             </div>
                         </div>
                     {% else %}
-                        <div class="col-xl-2 col-lg-3 col-12 p-3">
-                            {% if guest.confirm %}
-                                <button class="profile-button m-auto" onclick="location.href='/invite/menu/'">ВЫБРАТЬ</button>
-                            {% else %}
-                                <button id="bt2" class="profile-button m-auto" role="button" data-toggle="popover" data-placement="top" data-trigger="focus" data-content="Сначала нужно подтвердить приглашение">ВЫБРАТЬ</button>
-                            {% endif %}
+                        <div class="col-xl-2 col-lg-2 col-12 p-xl-3 p-1">
+                            <div class="row m-2 justify-content-center justify-content-lg-end">
+                                {% if guest.confirm %}
+                                    <button class="profile-button m-1" onclick="location.href='/invite/menu/'">ВЫБРАТЬ</button>
+                                {% else %}
+                                    <button id="bt2" class="profile-button m-1" role="button" data-toggle="popover" data-placement="top" data-trigger="focus" data-content="Сначала нужно подтвердить приглашение">ВЫБРАТЬ</button>
+                                {% endif %}
+                            </div>
                         </div>
                     {% endif %}
                 </div>
@@ -404,8 +415,12 @@
 <script type="text/javascript">
 
     {% if not guest.confirm %}
-        $('#bt1').popover()
-        $('#bt2').popover()
+        $('#bt1').popover();
+        $('#bt2').popover();
+    {% endif %}
+
+    {% if guest.email == "" %}
+        $('#bt3').popover();
     {% endif %}
     var toggle = document.getElementById('container');
     var toggleContainer = document.getElementById('toggle-container');

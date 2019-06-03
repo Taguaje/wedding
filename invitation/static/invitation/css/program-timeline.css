@@ -26,7 +26,8 @@ h1 span {
     max-width: 1000px;
     position: relative;
     z-index: 0;
-    margin-left: calc((80vw - 25px) / 20);
+    margin-left: calc((190vw) / 20);
+    margin-right: auto;
     margin-top: 130px;
     font-family: "Comfortaa", serif;
 }
@@ -58,15 +59,15 @@ input::before, input::after {
     top: 50%;
     transform: translateY(-50%);
     background-color: #2C3E50;
-    width: 6vw;
+    width: 9vw;
     height: 5px;
-    max-width: 70px;
+    max-width: 100px;
 }
 input::before {
-    left: calc(-4vw + 12.5px);
+    left: calc(-8vw + 12.5px);
 }
 input::after {
-    right: calc(-4vw + 12.5px);
+    right: calc(-8vw + 12.5px);
 }
 input:checked {
     background-color: #2C3E50;
@@ -173,14 +174,14 @@ input[data-description="2000"]:checked ~ #timeline-descriptions-wrapper p[data-d
 
 @media (min-width: 1250px) {
     .input-flex-container {
-        margin-left: 62.5px;
+        margin-left: 152.5px;
     }
 
     input::before {
-        left: -67.5px;
+        left: -87.5px;
     }
     input::after {
-        right: -57.5px;
+        right: -87.5px;
     }
 
     .dot-info {
@@ -202,7 +203,7 @@ input[data-description="2000"]:checked ~ #timeline-descriptions-wrapper p[data-d
         width: 400px;
         height: auto;
         margin-top: 5vh;
-        margin-left: 0;
+        margin-left: auto;
     }
 
     input, .dot-info {
@@ -270,13 +271,9 @@ input[data-description="2000"]:checked ~ #timeline-descriptions-wrapper p[data-d
         text-align: center;
     }
 }
-@media (max-width: 480px) {
-    .input-flex-container {
-        width: 470px;
-    }
-}
+
 @media (max-width: 400px) {
     .input-flex-container {
-        width: 390px;
+        width: 90%;
     }
 }
