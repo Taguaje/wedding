@@ -35,6 +35,7 @@ class Menu(models.Model):
 class Guest(models.Model):
     name = models.CharField(max_length=100)
     family = models.CharField(max_length=100)
+    middleName = models.CharField(max_length=100, default='')
     isComing = models.BooleanField(default=True)
     confirm = models.BooleanField(default=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)

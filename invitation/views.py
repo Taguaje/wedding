@@ -155,6 +155,7 @@ def new_guest(request):
         name = request.POST.get('name')
         family = request.POST.get('family')
         description = request.POST.get('guest_description')
+        guest_middle = request.POST.get('guest_middle')
         type = int(request.POST.get('guest_type'))
         family = family.capitalize()
         family = family.replace(" ","")
@@ -175,6 +176,7 @@ def new_guest(request):
 
         guest.name = name
         guest.family = family
+        guest.middleName = guest_middle
         guest.user = new_user
         guest.description = description
         guest.type = type

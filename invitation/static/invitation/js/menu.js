@@ -18,7 +18,7 @@ function saveMenu() {
         }
     }
 
-    saladId = saladId.replace('Sa','');
+
 
     var mainDishes = document.getElementsByName('mainDish');
     var mainDishId = '';
@@ -28,7 +28,6 @@ function saveMenu() {
         }
     }
 
-    mainDishId = mainDishId.replace('Ma','');
 
     var garnish = document.getElementsByName('garnish');
     var garnishId = '';
@@ -38,8 +37,6 @@ function saveMenu() {
         }
     }
 
-    garnishId = garnishId.replace('Ga','');
-
     var alcohol = document.getElementsByName('alcohol');
     var alcoholIds = '';
     for (var i in alcohol){
@@ -48,19 +45,22 @@ function saveMenu() {
         }
     }
 
-    alcoholIds = alcoholIds.replace(/Al/g, '');
-
+    saladId = saladId.replace('Sa','');
     if (saladId == ''){
         alert('Необходимо выбрать салат!');
         return;
     }
 
+    mainDishId = mainDishId.replace('Ma','');
     if(mainDishId == ''){
         alert("Необходимо выбрать главное блюдо!");
         return;
     }
 
-    if(mainDishId != '9'){
+    var mainDishname = document.getElementById(mainDishId + 'Ma').getAttribute('data-name')
+
+    garnishId = garnishId.replace('Ga','');
+    if(mainDishname != 'Семга в креветочном соусе'){
         if(garnishId == ''){
             alert("Необходимо выбрать гарнир!");
             return;
@@ -70,6 +70,7 @@ function saveMenu() {
         garnishId = '-1'
     }
 
+    alcoholIds = alcoholIds.replace(/Al/g, '');
     if(alcoholIds == ''){
         alert("Необходимо выбрать Алкоголь!");
         return;

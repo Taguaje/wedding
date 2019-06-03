@@ -78,9 +78,9 @@
                 {% for mainDish in mainDishes %}
                     <div class="row p-0 pl-md-4 menu-item" id="id_menu_item">
                         {% if mainDishId == mainDish.id  %}
-                            <input type="radio" class="menu-radio" id="{{ mainDish.id }}Ma" name="mainDish" checked>
+                            <input type="radio" class="menu-radio" id="{{ mainDish.id }}Ma" name="mainDish" data-name="{{mainDish.name}}" checked >
                         {% else %}
-                            <input type="radio" class="menu-radio" id="{{ mainDish.id }}Ma" name="mainDish">
+                            <input type="radio" class="menu-radio" id="{{ mainDish.id }}Ma" name="mainDish" data-name="{{mainDish.name}}">
                         {% endif %}
                         <label for="{{ mainDish.id }}Ma" class="col-12 mb-0" onclick="changeVisibility('{{mainDish.name}}')">
                             <div class="menu-item-title">
@@ -166,7 +166,7 @@
         <div class="col-12 col-lg-3 menu-img p-0">
             <img src="{% static 'invitation/jpg/alcohol-bar-beer-989711.jpg' %}" class="img-fluid">
             <div class="menu-type-title text-center">Алкоголь</div>
-            <div class="menu-type-tip text-center">(можно выбрать несколько)</div>
+            <div class="menu-type-tip text-center mt-2">(можно выбрать несколько)</div>
         </div>
         <div class="col-12 col-lg-9 pt-3 p-lg-0">
             {% if isView %}
