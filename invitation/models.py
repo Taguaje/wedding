@@ -41,6 +41,8 @@ class Guest(models.Model):
     menu = models.ForeignKey(Menu, on_delete=models.SET_NULL, null=True)
     alcohol = models.ManyToManyField(Alcohol, blank=True, null=True)
     guestsIsVisible = models.BooleanField(default=True)
+    description = models.CharField(max_length=200, default='')
+    type = models.IntegerField(default=1)
 
     def __str__(self):
         return self.name + " " + self.family

@@ -68,6 +68,8 @@
 function newGuest() {
     var name = document.getElementById('guest_name').value;
     var family = document.getElementById('guest_family').value;
-    $.post('/invite/new_guest/',{'name':name, 'family': family}, OnSuccessGuest);
+    var description = document.getElementById('guest_description').value;
+    var guestType = document.getElementById('guest_type').value;
+    $.post('/invite/new_guest/',{'name':name, 'family': family, 'guest_description': description, 'guest_type': guestType }, OnSuccessGuest);
 
 }

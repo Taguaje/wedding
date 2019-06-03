@@ -154,6 +154,8 @@ def new_guest(request):
     if request.method == 'POST':
         name = request.POST.get('name')
         family = request.POST.get('family')
+        description = request.POST.get('guest_description')
+        type = int(request.POST.get('guest_type'))
         family = family.capitalize()
         family = family.replace(" ","")
         name = name.capitalize()
@@ -161,11 +163,21 @@ def new_guest(request):
         user_name = name + family
         password = family
 
-        new_user = User.objects.create_user(username=user_name, password=password)
-        guest = Guest()
+        try:
+            new_user = User.objects.get(username=user_name)
+        except User.DoesNotExist:
+            new_user = User.objects.create_user(username=user_name, password=password)
+
+        try:
+            guest = Guest.objects.get(user=new_user)
+        except Guest.DoesNotExist:
+            guest = Guest()
+
         guest.name = name
         guest.family = family
         guest.user = new_user
+        guest.description = description
+        guest.type = type
         guest.save()
         return HttpResponse('ok', content_type='text/html')
 
