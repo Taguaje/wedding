@@ -175,3 +175,8 @@
 .rsvp.return{
     background-color: #D74046;
 }
+
+
+.rsvp.loader{
+    padding: 10px 25px;
+}

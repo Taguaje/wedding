@@ -130,12 +130,23 @@ span.swirl-right {
     font-size: calc(1em + 1vw);
 }
 
-.how-where {
+.how-where{
     background: url("/static/invitation/jpg/seamless_new.png");
     position: relative;
     font-family: "Caveat";
 }
 
+.dress .dress-color{
+    width: 3.5vw;
+    height: 3.5vw;
+    border-radius: 50%;
+    border: white solid 0.25vw;
+}
+
+.main-text{
+    font-family: "Comfortaa", serif;
+    font-size: 1.2em;
+}
 
 
 

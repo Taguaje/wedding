@@ -200,9 +200,11 @@
     </div>
     <div class="row p-4 text-center justify-content-center">
         {% if not isView %}
-            <button class="rsvp m-1" onclick="saveMenu()">
-                Подтвердить
-                <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            <button class="rsvp loader m-1 align-middle" onclick="saveMenu()">
+                <div class="row p-0">
+                    <div>Подтвердить</div>
+                    <div id="loader" class="lds-dual-ring"></div>
+                </div>
             </button>
         {% endif %}
         <button class="rsvp m-1 return" onclick="location.href='/invite/profile'">Назад</button>
@@ -239,5 +241,8 @@
         }
     }
     });
+
+    document.getElementById('loader').hidden = true;
+
 </script>
 </html>

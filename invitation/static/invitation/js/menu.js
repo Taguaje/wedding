@@ -57,7 +57,7 @@ function saveMenu() {
         return;
     }
 
-    var mainDishname = document.getElementById(mainDishId + 'Ma').getAttribute('data-name')
+    var mainDishname = document.getElementById(mainDishId + 'Ma').getAttribute('data-name');
 
     garnishId = garnishId.replace('Ga','');
     if(mainDishname != 'Семга в креветочном соусе'){
@@ -75,17 +75,19 @@ function saveMenu() {
         alert("Необходимо выбрать Алкоголь!");
         return;
     }
-
+    document.getElementById('loader').hidden = false;
     $.post('/invite/save_menu/', {'alcohol': alcoholIds, 'garnish': garnishId, 'mainDish': mainDishId, 'salad': saladId }, OnSuccess)
 
 }
 
 
-   function OnSuccess (data) {
-            if(data='ok'){
-                location.href = '/invite/profile'
-            }
-            else
-                alert('Произошла ошибка')
-
+function OnSuccess (data) {
+    if(data='ok'){
+        location.href = '/invite/profile'
     }
+    else {
+        document.getElementById('loader').hidden = false;
+        alert('Произошла ошибка')
+    }
+
+}
