@@ -173,7 +173,7 @@
                             </div>
                         </div>
                     {% else %}
-                        <div class="profile-text-block col-xl-5 col-lg-5 col-md-12 p-0 pl-lg-3">
+                        <div class="profile-text-block col-xl-5 col-lg-5 col-md-12 p-3 pl-lg-3">
                             <span class="question-title">Мы будет очень рады, если ты прийдешь!</span>
                         </div>
                         <div class="col-xl-5 col-lg-5 col-6 p-0">
@@ -300,16 +300,16 @@
                         <img class="img-fluid" src="{% static  '/invitation/jpg/davide-baraldi-1582906-unsplash.jpg'%}">
                     </div>
                     {% if guest.email == "" %}
-                        <div class="profile-text-block col-xl-6 col-lg-4 col-md-12 p-2">
+                        <div class="profile-text-block col-xl-5 col-lg-4 col-md-12 p-2">
                             <span class="question-title">Подпишись на новости свадьбы!</span>
-                             <button id="bt3" class="profile-button ml-1" role="button" data-toggle="popover" data-placement="top" data-trigger="focus" data-content="Мы планируем проводить различные голосования и активности на нашем сайте, подпишись чтобы не пропустить. А также будем высылать важные новости:)">ЗАЧЕМ?</button>
                         </div>
-                        <div class="col-xl-2 col-lg-3 col-12 p-1">
+                        <div class="col-xl-2 col-lg-3 col-12 pt-1 pb-1 pl-5 pr-5 pl-lg-1 pr-lg-1">
                             <input id="id_email" type="email" class="form-control" placeholder="Ваш email"/>
                         </div>
-                        <div class="col-xl-2 col-lg-3 col-12 p-1">
+                        <div class="col-xl-3 col-lg-3 col-12 p-1">
                             <div class="row m-2 justify-content-center justify-content-lg-end">
                                 <button class="profile-button m-1" onclick="confirmEmail()">ПОДВЕРДИТЬ</button>
+                                <button id="bt3" class="profile-button m-1" role="button" data-toggle="popover" data-placement="top" data-content="Мы планируем проводить различные голосования и активности на нашем сайте, подпишись чтобы не пропустить. А также будем высылать важные новости:)">ЗАЧЕМ?</button>
                             </div>
                         </div>
                     {% else %}

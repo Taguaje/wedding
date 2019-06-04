@@ -234,3 +234,10 @@ input[type="file"] {
         font-size: 1.2em;
     }
 }
+
+#bt3{
+    background-color: #fff;
+    font-weight: 500;
+    color: #D74046;
+    border: #D74046 solid 2px;
+}
