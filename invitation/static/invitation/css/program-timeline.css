@@ -93,7 +93,7 @@ input:checked + .dot-info span {
     visibility: hidden;
     position: relative;
     z-index: -1;
-    left: calc((((80vw - 25px) / 20) * -1) - 1px);
+    left: calc((((130vw - 25px) / 20) * -1) - 1px);
 }
 .dot-info span {
     visibility: visible;
@@ -103,7 +103,7 @@ input:checked + .dot-info span {
 .dot-info span.year {
     bottom: -40px;
     left: 0;
-    transform: translateX(-70%);
+    transform: translateX(-20%);
 }
 .dot-info span.label {
     top: -65px;
@@ -117,7 +117,7 @@ input:checked + .dot-info span {
     visibility: visible;
     position: absolute;
     bottom: -180%;
-    left: -300%;
+    left: -200%;
     max-width: 150%;
 }
 #timeline-descriptions-wrapper {
@@ -125,11 +125,12 @@ input:checked + .dot-info span {
     margin-top: 70px;
     font-size: 22px;
     font-weight: 400;
-    margin-left: calc((-80vw - 25px) / 20);
+    margin-left: calc((-130vw - 25px) / 20);
 }
 #timeline-descriptions-wrapper p {
     margin-top: 0;
     display: none;
+    text-align: center;
 }
 
 input[data-description="1910"]:checked ~ #timeline-descriptions-wrapper p[data-description="1910"] {
@@ -174,7 +175,7 @@ input[data-description="2000"]:checked ~ #timeline-descriptions-wrapper p[data-d
 
 @media (min-width: 1250px) {
     .input-flex-container {
-        margin-left: 152.5px;
+        margin-left: auto;
     }
 
     input::before {
@@ -185,7 +186,7 @@ input[data-description="2000"]:checked ~ #timeline-descriptions-wrapper p[data-d
     }
 
     .dot-info {
-        left: calc((((1000px - 25px) / 20) * -1) - 1px);
+        left: calc((((1650px - 15px) / 20) * -1) - 1px);
     }
 
     #timeline-descriptions-wrapper {
