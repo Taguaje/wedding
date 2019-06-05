@@ -137,8 +137,8 @@ span.swirl-right {
 }
 
 .dress .dress-color{
-    width: calc(1em + 2.5vw);
-    height: calc(1em + 2.5vw);
+    width: calc(3em + 2.5vw);
+    height: calc(3em + 2.5vw);
     border-radius: 50%;
     border: white solid 0.25vw;
 }
