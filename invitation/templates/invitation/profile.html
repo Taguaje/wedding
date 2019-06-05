@@ -408,6 +408,79 @@
 
             </div>
         </div>
+        <div class="row pb-4 pt-4">
+            {% if guest.guestsIsVisible %}
+                <div class="col-12">
+                    <h1 class="title">Наши гости</h1>
+                    <div id="carouselExampleIndicators" class="carousel slide mt-4">
+                        <ol class="carousel-indicators">
+                            {% for g in guests %}
+                                <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}" class="active"></li>
+                            {% endfor %}
+                        </ol>
+                        <div class="carousel-inner">
+                            {% for slide in guests %}
+                                {% if forloop.counter0 == 0 %}
+                                    <div class="carousel-item active">
+                                        <div class="row col-12 guest-items justify-content-center mb-5">
+                                            {% for g in slide %}
+                                                <div class="guest-item">
+                                                    {% if not g.avatar %}
+                                                        <img class="img-fluid" src="{% static '/invitation/jpg/user-default-grey.png' %}"/>
+                                                    {% else %}
+                                                        <img class="img-fluid" src="{{ g.avatar.url }}"/>
+                                                    {% endif %}
+                                                    <div class="guest-name mt-2">{{ g.name.capitalize }} {{ g.family.capitalize }}</div>
+                                                    <div class="guest-description">{{ g.description.capitalize }}</div>
+                                                    <div class="guest-type mt-1">
+                                                        {% if g.type == 1 %}
+                                                        со стороны жениха
+                                                        {% elif g.type == 2 %}
+                                                        со стороны невесты
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <div class="carousel-item">
+                                        <div class="row col-12 guest-items justify-content-center mb-5">
+                                            {% for g in slide %}
+                                                <div class="guest-item">
+                                                    {% if not g.avatar %}
+                                                        <img class="img-fluid" src="{% static '/invitation/jpg/user-default-grey.png' %}"/>
+                                                    {% else %}
+                                                        <img class="img-fluid" src="{{ g.avatar.url }}"/>
+                                                    {% endif %}
+                                                    <div class="guest-name mt-2">{{ g.name.capitalize }} {{ g.family.capitalize }}</div>
+                                                    <div class="guest-description">{{ g.description.capitalize }}</div>
+                                                    <div class="guest-type mt-1">
+                                                        {% if g.type == 1 %}
+                                                            со стороны жениха
+                                                        {% elif g.type == 2 %}
+                                                            со стороны невесты
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
     </main>
 </div>
 </body>
@@ -417,6 +490,12 @@
     {% if not guest.confirm %}
         $('#bt1').popover();
         $('#bt2').popover();
+    {% endif %}
+
+    {% if guest.guestsIsVisible %}
+        $(document).ready(function () {
+            $("carouselExampleIndicators").carousel({interval: 500, pause: "hover"});
+        });
     {% endif %}
 
     {% if guest.email == "" %}

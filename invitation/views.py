@@ -19,7 +19,27 @@ def profile(request):
         except:
             photoUrl = ""
         form = PhotoForm(auto_id = False)
-        data = {'guestName': guestName, 'guest': guest, 'form': form, 'photoUrl': photoUrl}
+        if guest.guestsIsVisible:
+            guests = Guest.objects.all()
+            guests_data = []
+            i = 1
+            guest_slide =[]
+            for g in guests:
+                if i == 5:
+                    guest_slide.append(g)
+                    guests_data.append(guest_slide)
+                    guest_slide = []
+                    i = 1
+                elif g == guests[len(guests)-1]:
+                    guest_slide.append(g)
+                    guests_data.append(guest_slide)
+                else:
+                    guest_slide.append(g)
+                    i += 1
+
+            data = {'guestName': guestName, 'guest': guest, 'form': form, 'photoUrl': photoUrl, 'guests': guests_data, 'count_slide': len(guests_data)}
+        else:
+            data = {'guestName': guestName, 'guest': guest, 'form': form, 'photoUrl': photoUrl}
         return render(request, 'invitation/profile.html', data)
 
 
