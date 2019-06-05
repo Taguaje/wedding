@@ -25,7 +25,7 @@ def profile(request):
             i = 1
             guest_slide =[]
             for g in guests:
-                if i == 5:
+                if i == 4:
                     guest_slide.append(g)
                     guests_data.append(guest_slide)
                     guest_slide = []
