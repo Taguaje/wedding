@@ -6,8 +6,31 @@ from django.core.mail import EmailMessage
 from django.core import mail
 from django.contrib.auth.models import User
 
+
 def index(request):
-    return render(request, 'invitation/home.html')
+    data = {}
+    if request.user.is_authenticated:
+        guest = Guest.objects.get(user=request.user)
+        data = {'guest': guest}
+        if guest.guestsIsVisible:
+            guests = Guest.objects.order_by('order')
+            guests_data = []
+            i = 1
+            guest_slide =[]
+            for g in guests:
+                if i == 4:
+                    guest_slide.append(g)
+                    guests_data.append(guest_slide)
+                    guest_slide = []
+                    i = 1
+                elif g == guests[len(guests)-1]:
+                    guest_slide.append(g)
+                    guests_data.append(guest_slide)
+                else:
+                    guest_slide.append(g)
+                    i += 1
+            data = {'guest': guest, 'guests': guests_data}
+    return render(request, 'invitation/home.html', data)
 
 
 def profile(request):
@@ -20,7 +43,7 @@ def profile(request):
             photoUrl = ""
         form = PhotoForm(auto_id = False)
         if guest.guestsIsVisible:
-            guests = Guest.objects.all()
+            guests = Guest.objects.order_by('order')
             guests_data = []
             i = 1
             guest_slide =[]

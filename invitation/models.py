@@ -48,6 +48,7 @@ class Guest(models.Model):
     guestsIsVisible = models.BooleanField(default=True)
     description = models.CharField(max_length=200, default='')
     type = models.IntegerField(default=1)
+    order = models.IntegerField(default=9999, blank=True)
 
     def __str__(self):
         return self.name + " " + self.family
