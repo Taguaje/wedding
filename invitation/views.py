@@ -10,7 +10,11 @@ from django.db.models import Q
 
 def index(request):
     organizators = Guest.objects.filter(type=4)
-    data = {'organizators': organizators}
+    if request.user.is_authenticated:
+        guest = Guest.objects.get(user=request.user)
+        data = {'organizators': organizators, 'guest': guest}
+    else:
+        data = {'organizators': organizators}
     return render(request, 'invitation/home.html', data)
 
 
