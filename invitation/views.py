@@ -5,31 +5,12 @@ from .forms import PhotoForm
 from django.core.mail import EmailMessage
 from django.core import mail
 from django.contrib.auth.models import User
+from django.db.models import Q
 
 
 def index(request):
-    data = {}
-    if request.user.is_authenticated:
-        guest = Guest.objects.get(user=request.user)
-        data = {'guest': guest}
-        if guest.guestsIsVisible:
-            guests = Guest.objects.order_by('order')
-            guests_data = []
-            i = 1
-            guest_slide =[]
-            for g in guests:
-                if i == 4:
-                    guest_slide.append(g)
-                    guests_data.append(guest_slide)
-                    guest_slide = []
-                    i = 1
-                elif g == guests[len(guests)-1]:
-                    guest_slide.append(g)
-                    guests_data.append(guest_slide)
-                else:
-                    guest_slide.append(g)
-                    i += 1
-            data = {'guest': guest, 'guests': guests_data}
+    organizators = Guest.objects.filter(type=4)
+    data = {'organizators': organizators}
     return render(request, 'invitation/home.html', data)
 
 
@@ -43,7 +24,7 @@ def profile(request):
             photoUrl = ""
         form = PhotoForm(auto_id = False)
         if guest.guestsIsVisible:
-            guests = Guest.objects.order_by('order')
+            guests = Guest.objects.filter(~Q(type=4)).order_by('order')
             guests_data = []
             i = 1
             guest_slide =[]

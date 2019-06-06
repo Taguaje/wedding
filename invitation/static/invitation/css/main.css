@@ -85,7 +85,7 @@ span.swirl-right {
 .mask-inside{
     position: absolute;
     bottom: -30px;
-    left: -150px;
+    left: 0px;
     max-width: 100%;
     background-size: cover;
 }
@@ -135,6 +135,7 @@ span.swirl-right {
     background: url("/static/invitation/jpg/seamless_new.png");
     position: relative;
     font-family: "Caveat";
+    padding-bottom: 100px!important;
 }
 
 .dress .dress-color{
@@ -214,10 +215,16 @@ img{
     color: white;
 }
 
-#guests{
+#organizators{
     background: url("/static/invitation/jpg/seamless.png");
     padding-top: 50px;
-    font-family: "Caveat";
+    font-family: "Comfortaa", serif;
     position: relative;
     max-width: 100%;
+}
+
+.title-small{
+    font-family: Caveat;
+    font-size: 2em;
+    display: inline-block;
 }
