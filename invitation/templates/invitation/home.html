@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="{% static "invitation/css/main.css" %}">
     <link rel="stylesheet" href="{% static "invitation/css/navbar.css" %}">
     <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.css" %}">
-    <link rel="stylesheet" href="{% static "invitation/css/guests.css" %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Comfortaa|Marck+Script" rel="stylesheet">
@@ -340,7 +339,7 @@
     <div class="col-12 text-center mt-2 mb-3">
         <h1 class="title-small">Наши координаторы на свадьбе</h1>
     </div>
-    <div class="row col-12 guest-items justify-content-center pb-5">
+    <div class="row col-12 guest-items justify-content-center pb-5 m-0">
         {% for o in organizators %}
             <div class="guest-item">
                 {% if not o.avatar %}
