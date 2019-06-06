@@ -12,13 +12,15 @@
     <script src="{% static '/bootstrap/js/bootstrap.js' %}"></script>
     <script src="{% static '/invitation/js/login.js' %}"></script>
     <link href="https://fonts.googleapis.com/css?family=Comfortaa|Marck+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Caveat|Source+Sans+Pro&amp;subset=cyrillic" rel="stylesheet">
 </head>
 <body style="height: 100vh;">
 <div class="h-100 container-fluid col-md-3 col-10">
     <div class="h-75 row align-items-center text-center">
         <div class="col p-2">
             <img class="rsvp-flower" src="{% static "invitation/jpg/rsvp-flower.png" %}">
-            <h3 class="text-center"><a class="text-dark" href="/">Приглашение</a></h3>
+            <h3 class="text-center" style="font-family: Caveat, serif; font-size: 2.5em"><a class="text-dark" href="/">Приглашение</a></h3>
+            <h3 class="text-center" style="font-family: Caveat, serif; font-size: 2.5em"><a class="text-dark" href="/">на свадьбу Влада & Даши</a></h3>
             <form method="POST" action="{% url 'account_login' %}" class="pt-2">
                 {% csrf_token %}
                 <div class="form-group row">
