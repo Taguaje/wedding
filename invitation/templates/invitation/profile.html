@@ -32,24 +32,6 @@
 
 </head>
 <body>
-<div id="preloader" style="display: none;">
-    <div class="alignment">
-        <div class="v-align center-middle">
-            <div class="heart-animation one">
-                <i class="icon icon-heart"></i>
-            </div>
-            <div class="heart-animation two">
-                <i class="icon icon-heart"></i>
-            </div>
-            <div class="heart-animation three">
-                <i class="icon icon-heart"></i>
-            </div>
-            <div class="heart-animation four">
-                <i class="icon icon-heart"></i>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="container-fluid p-0">
     <header>
     </header>
@@ -177,26 +159,26 @@
                         <div class="profile-text-block col-xl-5 col-lg-5 col-md-12 p-3 pl-lg-3">
                             <span class="question-title">Мы будет очень рады, если ты прийдешь!</span>
                         </div>
-                        <div class="col-xl-5 col-lg-5 col-6 p-0">
+                        <div class="col-xl-5 col-lg-5 col-md-12 p-0">
                             <div class="row m-2 justify-content-center justify-content-lg-end">
-                                <div id="container" class="">
-                                <div class="inner-container">
-                                    <div class="toggle first">
-                                        <p>Не смогу</p>
+                                <div id="container" class="ml-2 mr-2">
+                                    <div class="inner-container">
+                                        <div class="toggle first">
+                                            <p>Не смогу</p>
+                                        </div>
+                                        <div class="toggle second">
+                                            <p>Приду</p>
+                                        </div>
                                     </div>
-                                    <div class="toggle second">
-                                        <p>Приду</p>
+                                    <div class="inner-container" id='toggle-container'>
+                                        <div class="toggle first">
+                                            <p>Не смогу</p>
+                                        </div>
+                                        <div class="toggle second">
+                                            <p>Приду</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="inner-container" id='toggle-container'>
-                                    <div class="toggle first">
-                                        <p>Не смогу</p>
-                                    </div>
-                                    <div class="toggle second">
-                                        <p>Приду</p>
-                                    </div>
-                                </div>
-                            </div>
                                 <button class="profile-button m-1" onclick="confirm()">ПОДТВЕРДИТЬ</button>
                             </div>
                         </div>
@@ -264,12 +246,12 @@
                             </div>
                         </div>
                     {% else %}
-                        <div class="profile-text-block col-xl-5 col-lg-5 col-md-11 p-0 pl-lg-3">
+                        <div class="profile-text-block col-xl-5 col-lg-5 col-md-12 p-0 pl-lg-3">
                             <span class="question-title">Мы можем помочь тебе добраться до места нашей свадьбы.</span>
                         </div>
-                        <div class="col-xl-5 col-lg-5 col-6 p-0">
+                        <div class="col-xl-5 col-lg-5 col-md-12 p-0">
                             <div class="row m-2 justify-content-center justify-content-lg-end">
-                                <div id="container-2" class="">
+                                <div id="container-2" class="ml-2 mr-2">
                                     <div class="inner-container">
                                         <div class="toggle">
                                             <p>Я сам</p>
