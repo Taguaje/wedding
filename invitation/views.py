@@ -33,6 +33,8 @@ def profile(request):
             i = 1
             guest_slide =[]
             for g in guests:
+                if g.confirm and not g.isComing:
+                    continue
                 if i == 4:
                     guest_slide.append(g)
                     guests_data.append(guest_slide)
