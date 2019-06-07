@@ -157,7 +157,7 @@
                         </div>
                     {% else %}
                         <div class="profile-text-block col-xl-5 col-lg-5 col-md-12 p-3 pl-lg-3">
-                            <span class="question-title">Мы будет очень рады, если ты прийдешь!</span>
+                            <span class="question-title">Мы будем очень рады, если ты прийдешь!</span>
                         </div>
                         <div class="col-xl-5 col-lg-5 col-md-12 p-0">
                             <div class="row m-2 justify-content-center justify-content-lg-end">
@@ -405,7 +405,7 @@
                             {% for slide in guests %}
                                 {% if forloop.counter0 == 0 %}
                                     <div class="carousel-item active">
-                                        <div class="row col-12 guest-items justify-content-center mb-5">
+                                        <div class="row col-12 guest-items justify-content-center mb-5 ml-auto mr-auto">
                                             {% for g in slide %}
                                                 <div class="guest-item">
                                                     {% if not g.avatar %}
@@ -413,9 +413,9 @@
                                                     {% else %}
                                                         <img class="img-fluid" src="{{ g.avatar.url }}"/>
                                                     {% endif %}
-                                                    <div class="guest-name mt-2">{{ g.name.capitalize }} {{ g.family.capitalize }}</div>
-                                                    <div class="guest-description">{{ g.description.capitalize }}</div>
-                                                    <div class="guest-type mt-1">
+                                                    <div class="guest-name mt-2 ml-auto mr-auto">{{ g.name.capitalize }} {{ g.family.capitalize }}</div>
+                                                    <div class="guest-description ml-auto mr-auto">{{ g.description.capitalize }}</div>
+                                                    <div class="guest-type mt-1 ml-auto mr-auto">
                                                         {% if g.type == 1 %}
                                                         со стороны жениха
                                                         {% elif g.type == 2 %}
@@ -428,7 +428,7 @@
                                     </div>
                                 {% else %}
                                     <div class="carousel-item">
-                                        <div class="row col-12 guest-items justify-content-center mb-5">
+                                        <div class="row col-12 guest-items justify-content-center mb-5 ml-auto mr-auto">
                                             {% for g in slide %}
                                                 <div class="guest-item">
                                                     {% if not g.avatar %}
@@ -436,9 +436,9 @@
                                                     {% else %}
                                                         <img class="img-fluid" src="{{ g.avatar.url }}"/>
                                                     {% endif %}
-                                                    <div class="guest-name mt-2">{{ g.name.capitalize }} {{ g.family.capitalize }}</div>
-                                                    <div class="guest-description">{{ g.description.capitalize }}</div>
-                                                    <div class="guest-type mt-1">
+                                                    <div class="guest-name mt-2 ml-auto mr-auto">{{ g.name.capitalize }} {{ g.family.capitalize }}</div>
+                                                    <div class="guest-description ml-auto mr-auto">{{ g.description.capitalize }}</div>
+                                                    <div class="guest-type mt-1 ml-auto mr-auto">
                                                         {% if g.type == 1 %}
                                                             со стороны жениха
                                                         {% elif g.type == 2 %}
@@ -463,6 +463,9 @@
                     </div>
                 </div>
             {% endif %}
+        </div>
+        <div class="row pb-4 pt-4">
+            <button class="rsvp-main m-auto" onclick="location.href='/invite'">Главная страница</button>
         </div>
     </main>
 </div>

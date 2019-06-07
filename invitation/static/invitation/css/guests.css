@@ -59,18 +59,38 @@
 }
 
 
-@media (max-width: 720px) {
+@media (max-width: 938px) {
     .guest-item img {
-        width: 100px;
-        height: 100px;
+        width: 250px;
+        height: 250px;
     }
 
     .guest-name{
-        font-size: 1.2em;
+        font-size: 1.8em;
     }
 
     .guest-description{
-        font-size: 0.7em;
+        font-size: 0.9em;
+    }
+
+    .guest-type{
+        font-size: 0.6em;
+    }
+}
+
+
+@media (max-width: 720px) {
+    .guest-item img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .guest-name{
+        font-size: 1.5em;
+    }
+
+    .guest-description{
+        font-size: 0.9em;
     }
 
     .guest-type{
@@ -78,10 +98,30 @@
     }
 }
 
-@media (max-width: 450px) {
+
+@media (max-width: 578px) {
     .guest-item img {
-        width: 100px;
-        height: 100px;
+        width: 150px;
+        height: 150px;
+    }
+
+    .guest-name{
+        font-size: 1.3em;
+    }
+
+    .guest-description{
+        font-size: 0.7em;
+    }
+
+    .guest-type{
+        font-size: 0.6em;
+    }
+}
+
+@media (max-width: 478px) {
+    .guest-item img {
+        width: 130px;
+        height: 130px;
     }
 
     .guest-item{
@@ -96,6 +136,65 @@
 
     .guest-description{
         font-size: 0.6em;
+        max-width: 100px;
+        text-align: center;
+    }
+
+    .guest-type{
+        font-size: 0.5em;
+        max-width: 100px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 369px) {
+    .guest-item img {
+        width: 110px;
+        height: 110px;
+    }
+
+    .guest-item{
+        margin: 10px;
+    }
+
+    .guest-name{
+        font-size: 1.1em;
+        max-width: 100px;
+        text-align: center;
+    }
+
+    .guest-description{
+        font-size: 0.6em;
+        max-width: 100px;
+        text-align: center;
+    }
+
+    .guest-type{
+        font-size: 0.5em;
+        max-width: 100px;
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 333px) {
+    .guest-item img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .guest-item{
+        margin: 10px;
+    }
+
+    .guest-name{
+        font-size: 1em;
+        max-width: 100px;
+        text-align: center;
+    }
+
+    .guest-description{
+        font-size: 0.5em;
         max-width: 100px;
         text-align: center;
     }
