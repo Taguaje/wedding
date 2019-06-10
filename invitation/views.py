@@ -51,8 +51,29 @@ def profile(request):
                     guest_slide.append(g)
                     i += 1
 
+            salads = {}
+            mainDishes = {}
+            garnish = {}
+            for g in guests_coming:
+                if salads.get(g.menu.salad) is None:
+                    salads.update({g.menu.salad: 1})
+                else:
+                    salads[g.menu.salad] += 1
+
+                if mainDishes.get(g.menu.mainDish) is None:
+                    mainDishes.update({g.menu.mainDish: 1})
+                else:
+                    mainDishes[g.menu.mainDish] += 1
+
+                if g.menu.garnish is not None:
+                    if garnish.get(g.menu.garnish) is None:
+                        garnish.update({g.menu.garnish: 1})
+                    else:
+                        garnish[g.menu.garnish] += 1
+
             data = {'guestName': guestName, 'guest': guest, 'form': form, 'photoUrl': photoUrl, 'guests': guests_data,
-                    'guests_coming': guests_coming, 'guests_not_coming': guests_not_coming, 'guests_not_confirm': guests_not_confirm,}
+                    'guests_coming': guests_coming, 'guests_not_coming': guests_not_coming, 'guests_not_confirm': guests_not_confirm,
+                    'salads': salads, 'mainDishes': mainDishes, 'garnish': garnish}
         else:
             data = {'guestName': guestName, 'guest': guest, 'form': form, 'photoUrl': photoUrl}
         return render(request, 'invitation/profile.html', data)

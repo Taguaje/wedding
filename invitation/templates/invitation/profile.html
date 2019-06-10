@@ -481,6 +481,9 @@
                         <li class="nav-item p-2">
                             <a class="nav-link" data-toggle="tab" href="#dont-know" role="tab">Не ответили</a>
                         </li>
+                        <li class="nav-item p-2">
+                            <a class="nav-link" data-toggle="tab" href="#menu" role="tab">Меню</a>
+                        </li>
                     </ul>
 
                     <div class="tab-content">
@@ -566,6 +569,74 @@
                                 </tbody>
                             </table>
                         </div>
+                    <div class="tab-pane" id="menu">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Гость</th>
+                                {% for s in salads %}
+                                    <th scope="col">{{ s.name }}</th>
+                                {% endfor %}
+                                {% for s in mainDishes %}
+                                    <th scope="col">{{ s.name }}</th>
+                                {% endfor %}
+                                {% for s in garnish %}
+                                    <th scope="col">{{ s.name }}</th>
+                                {% endfor %}
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for g in guests_coming %}
+                                <tr>
+                                    <th scope="row">
+                                        {{ forloop.counter }}
+                                    </th>
+                                    <th>
+                                        {{ g.name.capitalize }} {{ g.family.capitalize }}
+                                    </th>
+                                    {% for s in salads %}
+                                        {% if s == g.menu.salad %}
+                                            <th>1</th>
+                                        {% else %}
+                                            <th>-</th>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% for s in mainDishes %}
+                                        {% if s == g.menu.mainDish %}
+                                            <th>1</th>
+                                        {% else %}
+                                            <th>-</th>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% for s in garnish %}
+                                        {% if s == g.menu.garnish %}
+                                            <th>1</th>
+                                        {% else %}
+                                            <th>-</th>
+                                        {% endif %}
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        <tfoot>
+                        <tr>
+                            <td scope="row"></td>
+                            <td></td>
+                            {% for key, value in salads.items %}
+                                <td>{{ value }}</td>
+                            {% endfor %}
+                            {% for key, value in mainDishes.items %}
+                                <td>{{ value }}</td>
+                            {% endfor %}
+                            {% for key, value in garnish.items %}
+                                <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                        </tfoot>
+                        </table>
+
+                    </div>
                     </div>
                 </div>
             </div>
