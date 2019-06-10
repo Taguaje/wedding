@@ -27,8 +27,12 @@ def profile(request):
         except:
             photoUrl = ""
         form = PhotoForm(auto_id = False)
+        allguests = Guest.objects.filter(~Q(type=4))
+        guests_coming = allguests.filter(confirm=True, isComing=True)
+        guests_not_coming = allguests.filter(confirm=True, isComing=False)
+        guests_not_confirm = allguests.filter(confirm=False)
         if guest.guestsIsVisible:
-            guests = Guest.objects.filter(~Q(type=4)).order_by('order')
+            guests = allguests.order_by('order')
             guests_data = []
             i = 1
             guest_slide =[]
@@ -47,7 +51,8 @@ def profile(request):
                     guest_slide.append(g)
                     i += 1
 
-            data = {'guestName': guestName, 'guest': guest, 'form': form, 'photoUrl': photoUrl, 'guests': guests_data, 'count_slide': len(guests_data)}
+            data = {'guestName': guestName, 'guest': guest, 'form': form, 'photoUrl': photoUrl, 'guests': guests_data,
+                    'guests_coming': guests_coming, 'guests_not_coming': guests_not_coming, 'guests_not_confirm': guests_not_confirm,}
         else:
             data = {'guestName': guestName, 'guest': guest, 'form': form, 'photoUrl': photoUrl}
         return render(request, 'invitation/profile.html', data)

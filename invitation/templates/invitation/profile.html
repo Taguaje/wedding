@@ -467,6 +467,109 @@
         <div class="row pb-4 pt-4">
             <button class="rsvp-main m-auto" onclick="location.href='/invite'">Главная страница</button>
         </div>
+
+        {% if request.user.is_superuser %}
+            <div class="row pb-4 pt-4">
+                <div class="container">
+                    <ul class="nav nav-tabs" role="tablist" id="firstTitle">
+                        <li class="nav-item p-2">
+                            <a class="nav-link active" data-toggle="tab" href="#coming" role="tab">Придут</a>
+                        </li>
+                        <li class="nav-item p-2">
+                            <a class="nav-link" data-toggle="tab" href="#not-coming" role="tab">Не придут</a>
+                        </li>
+                        <li class="nav-item p-2">
+                            <a class="nav-link" data-toggle="tab" href="#dont-know" role="tab">Не ответили</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active show" id="coming">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Гость</th>
+                                    <th scope="col">Трансфер</th>
+                                    <th scope="col">Email</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for g in guests_coming %}
+                                        <tr>
+                                            <th scope ="row">
+                                                {{ forloop.counter }}
+                                            </th>
+                                            <th>
+                                                {{ g.name.capitalize }} {{ g.family.capitalize }}
+                                            </th>
+                                            <th>
+                                                {% if g.transferConfirm %}
+                                                    {{ g.needTransfer }}
+                                                {% else %}
+                                                    не подтверил
+                                                {% endif %}
+                                            </th>
+                                            <th>
+                                                {{ g.email }}
+                                            </th>
+                                        </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="not-coming">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Гость</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for g in guests_not_coming %}
+                                        <tr>
+                                            <th scope ="row">
+                                                {{ forloop.counter }}
+                                            </th>
+                                            <th>
+                                                {{ g.name.capitalize }} {{ g.family.capitalize }}
+                                            </th>
+                                        </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="dont-know">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Гость</th>
+                                    <th scope="col">Email</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for g in guests_not_confirm %}
+                                        <tr>
+                                            <th scope ="row">
+                                                {{ forloop.counter }}
+                                            </th>
+                                            <th>
+                                                {{ g.name.capitalize }} {{ g.family.capitalize }}
+                                            </th>
+                                            <th>
+                                                {{ g.email }}
+                                            </th>
+                                        </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
     </main>
 </div>
 </body>
