@@ -595,27 +595,39 @@
                                     <th>
                                         {{ g.name.capitalize }} {{ g.family.capitalize }}
                                     </th>
-                                    {% for s in salads %}
-                                        {% if s == g.menu.salad %}
-                                            <th>1</th>
-                                        {% else %}
+                                    {% if g.menu is None %}
+                                        {% for s in salads %}
                                             <th>-</th>
-                                        {% endif %}
-                                    {% endfor %}
-                                    {% for s in mainDishes %}
-                                        {% if s == g.menu.mainDish %}
-                                            <th>1</th>
-                                        {% else %}
+                                        {% endfor %}
+                                        {% for s in mainDishes %}
                                             <th>-</th>
-                                        {% endif %}
-                                    {% endfor %}
-                                    {% for s in garnish %}
-                                        {% if s == g.menu.garnish %}
-                                            <th>1</th>
-                                        {% else %}
+                                        {% endfor %}
+                                        {% for s in garnish %}
                                             <th>-</th>
-                                        {% endif %}
-                                    {% endfor %}
+                                        {% endfor %}
+                                    {% else %}
+                                        {% for s in salads %}
+                                            {% if s == g.menu.salad %}
+                                                <th>1</th>
+                                            {% else %}
+                                                <th>-</th>
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% for s in mainDishes %}
+                                            {% if s == g.menu.mainDish %}
+                                                <th>1</th>
+                                            {% else %}
+                                                <th>-</th>
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% for s in garnish %}
+                                            {% if s == g.menu.garnish %}
+                                                <th>1</th>
+                                            {% else %}
+                                                <th>-</th>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
                                 </tr>
                             {% endfor %}
                             </tbody>
