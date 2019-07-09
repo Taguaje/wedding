@@ -54,7 +54,15 @@ def profile(request):
             salads = {}
             mainDishes = {}
             garnish = {}
+            alcohol = {}
+            guest_alcohol = {}
+            need_transfer = 0
+            transfer_not_confirm = 0
             for g in guests_coming:
+                if g.needTransfer and g.transferConfirm:
+                    need_transfer += 1
+                if not g.transferConfirm:
+                    transfer_not_confirm += 1
                 if g.menu is not None:
                     if salads.get(g.menu.salad) is None:
                         salads.update({g.menu.salad: 1})
@@ -71,10 +79,20 @@ def profile(request):
                             garnish.update({g.menu.garnish: 1})
                         else:
                             garnish[g.menu.garnish] += 1
+                if g.alcohol is not None:
+                    value = []
+                    for a in g.alcohol.all():
+                        value.append(a)
+                        if alcohol.get(a) is None:
+                            alcohol.update({a:1})
+                        else:
+                            alcohol[a] += 1
+                    guest_alcohol.update({g: value})
 
             data = {'guestName': guestName, 'guest': guest, 'form': form, 'photoUrl': photoUrl, 'guests': guests_data,
                     'guests_coming': guests_coming, 'guests_not_coming': guests_not_coming, 'guests_not_confirm': guests_not_confirm,
-                    'salads': salads, 'mainDishes': mainDishes, 'garnish': garnish}
+                    'salads': salads, 'mainDishes': mainDishes, 'garnish': garnish, 'transfer_count': need_transfer, 'alcohol': alcohol,
+                    'transfer_not_confirm': transfer_not_confirm, 'guest_alcohol': guest_alcohol}
         else:
             data = {'guestName': guestName, 'guest': guest, 'form': form, 'photoUrl': photoUrl}
         return render(request, 'invitation/profile.html', data)

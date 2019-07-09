@@ -484,6 +484,9 @@
                         <li class="nav-item p-2">
                             <a class="nav-link" data-toggle="tab" href="#menu" role="tab">Меню</a>
                         </li>
+                        <li class="nav-item p-2">
+                            <a class="nav-link" data-toggle="tab" href="#alcohol" role="tab">Алкоголь</a>
+                        </li>
                     </ul>
 
                     <div class="tab-content">
@@ -499,27 +502,29 @@
                                 </thead>
                                 <tbody>
                                 {% for g in guests_coming %}
-                                        <tr>
-                                            <th scope ="row">
-                                                {{ forloop.counter }}
-                                            </th>
-                                            <th>
-                                                {{ g.name.capitalize }} {{ g.family.capitalize }}
-                                            </th>
-                                            <th>
-                                                {% if g.transferConfirm %}
-                                                    {{ g.needTransfer }}
-                                                {% else %}
-                                                    не подтверил
-                                                {% endif %}
-                                            </th>
-                                            <th>
-                                                {{ g.email }}
-                                            </th>
-                                        </tr>
+                                    <tr>
+                                        <th scope ="row">
+                                            {{ forloop.counter }}
+                                        </th>
+                                        <th>
+                                            {{ g.name.capitalize }} {{ g.family.capitalize }}
+                                        </th>
+                                        <th>
+                                            {% if g.transferConfirm %}
+                                                {{ g.needTransfer }}
+                                            {% else %}
+                                                не подтверил
+                                            {% endif %}
+                                        </th>
+                                        <th>
+                                            {{ g.email }}
+                                        </th>
+                                    </tr>
                                 {% endfor %}
                                 </tbody>
+                                <div class="row m-auto text-center"><p>Трансфер нужен : {{ transfer_count }}. Не подтвердили : {{ transfer_not_confirm }}</p></div>
                             </table>
+
                         </div>
                         <div class="tab-pane" id="not-coming">
                             <table class="table">
@@ -531,14 +536,14 @@
                                 </thead>
                                 <tbody>
                                 {% for g in guests_not_coming %}
-                                        <tr>
-                                            <th scope ="row">
-                                                {{ forloop.counter }}
-                                            </th>
-                                            <th>
-                                                {{ g.name.capitalize }} {{ g.family.capitalize }}
-                                            </th>
-                                        </tr>
+                                    <tr>
+                                        <th scope ="row">
+                                            {{ forloop.counter }}
+                                        </th>
+                                        <th>
+                                            {{ g.name.capitalize }} {{ g.family.capitalize }}
+                                        </th>
+                                    </tr>
                                 {% endfor %}
                                 </tbody>
                             </table>
@@ -554,101 +559,149 @@
                                 </thead>
                                 <tbody>
                                 {% for g in guests_not_confirm %}
-                                        <tr>
-                                            <th scope ="row">
-                                                {{ forloop.counter }}
-                                            </th>
-                                            <th>
-                                                {{ g.name.capitalize }} {{ g.family.capitalize }}
-                                            </th>
-                                            <th>
-                                                {{ g.email }}
-                                            </th>
-                                        </tr>
+                                    <tr>
+                                        <th scope ="row">
+                                            {{ forloop.counter }}
+                                        </th>
+                                        <th>
+                                            {{ g.name.capitalize }} {{ g.family.capitalize }}
+                                        </th>
+                                        <th>
+                                            {{ g.email }}
+                                        </th>
+                                    </tr>
                                 {% endfor %}
                                 </tbody>
                             </table>
                         </div>
-                    <div class="tab-pane" id="menu">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Гость</th>
-                                {% for s in salads %}
-                                    <th scope="col">{{ s.name }}</th>
-                                {% endfor %}
-                                {% for s in mainDishes %}
-                                    <th scope="col">{{ s.name }}</th>
-                                {% endfor %}
-                                {% for s in garnish %}
-                                    <th scope="col">{{ s.name }}</th>
-                                {% endfor %}
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {% for g in guests_coming %}
+                        <div class="tab-pane" id="menu">
+                            <table class="table">
+                                <thead>
                                 <tr>
-                                    <th scope="row">
-                                        {{ forloop.counter }}
-                                    </th>
-                                    <th>
-                                        {{ g.name.capitalize }} {{ g.family.capitalize }}
-                                    </th>
-                                    {% if g.menu is None %}
-                                        {% for s in salads %}
-                                            <th>-</th>
-                                        {% endfor %}
-                                        {% for s in mainDishes %}
-                                            <th>-</th>
-                                        {% endfor %}
-                                        {% for s in garnish %}
-                                            <th>-</th>
-                                        {% endfor %}
-                                    {% else %}
-                                        {% for s in salads %}
-                                            {% if s == g.menu.salad %}
-                                                <th>1</th>
-                                            {% else %}
-                                                <th>-</th>
-                                            {% endif %}
-                                        {% endfor %}
-                                        {% for s in mainDishes %}
-                                            {% if s == g.menu.mainDish %}
-                                                <th>1</th>
-                                            {% else %}
-                                                <th>-</th>
-                                            {% endif %}
-                                        {% endfor %}
-                                        {% for s in garnish %}
-                                            {% if s == g.menu.garnish %}
-                                                <th>1</th>
-                                            {% else %}
-                                                <th>-</th>
-                                            {% endif %}
-                                        {% endfor %}
-                                    {% endif %}
+                                    <th scope="col">#</th>
+                                    <th scope="col">Гость</th>
+                                    {% for s in salads %}
+                                        <th scope="col">{{ s.name }}</th>
+                                    {% endfor %}
+                                    {% for s in mainDishes %}
+                                        <th scope="col">{{ s.name }}</th>
+                                    {% endfor %}
+                                    {% for s in garnish %}
+                                        <th scope="col">{{ s.name }}</th>
+                                    {% endfor %}
                                 </tr>
-                            {% endfor %}
-                            </tbody>
-                        <tfoot>
-                        <tr>
-                            <td scope="row"></td>
-                            <td></td>
-                            {% for key, value in salads.items %}
-                                <td>{{ value }}</td>
-                            {% endfor %}
-                            {% for key, value in mainDishes.items %}
-                                <td>{{ value }}</td>
-                            {% endfor %}
-                            {% for key, value in garnish.items %}
-                                <td>{{ value }}</td>
-                            {% endfor %}
-                        </tr>
-                        </tfoot>
-                        </table>
+                                </thead>
+                                <tbody>
+                                {% for g in guests_coming %}
+                                    <tr>
+                                        <th scope="row">
+                                            {{ forloop.counter }}
+                                        </th>
+                                        <th>
+                                            {{ g.name.capitalize }} {{ g.family.capitalize }}
+                                        </th>
+                                        {% if g.menu is None %}
+                                            {% for s in salads %}
+                                                <th>-</th>
+                                            {% endfor %}
+                                            {% for s in mainDishes %}
+                                                <th>-</th>
+                                            {% endfor %}
+                                            {% for s in garnish %}
+                                                <th>-</th>
+                                            {% endfor %}
+                                        {% else %}
+                                            {% for s in salads %}
+                                                {% if s == g.menu.salad %}
+                                                    <th>1</th>
+                                                {% else %}
+                                                    <th>-</th>
+                                                {% endif %}
+                                            {% endfor %}
+                                            {% for s in mainDishes %}
+                                                {% if s == g.menu.mainDish %}
+                                                    <th>1</th>
+                                                {% else %}
+                                                    <th>-</th>
+                                                {% endif %}
+                                            {% endfor %}
+                                            {% for s in garnish %}
+                                                {% if s == g.menu.garnish %}
+                                                    <th>1</th>
+                                                {% else %}
+                                                    <th>-</th>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td scope="row"></td>
+                                    <td></td>
+                                    {% for key, value in salads.items %}
+                                        <td>{{ value }}</td>
+                                    {% endfor %}
+                                    {% for key, value in mainDishes.items %}
+                                        <td>{{ value }}</td>
+                                    {% endfor %}
+                                    {% for key, value in garnish.items %}
+                                        <td>{{ value }}</td>
+                                    {% endfor %}
+                                </tr>
+                                </tfoot>
+                            </table>
 
-                    </div>
+                        </div>
+                        <div class="tab-pane" id="alcohol">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Гость</th>
+                                    {% for a in alcohol %}
+                                        <th scope="col">{{ a.name }}</th>
+                                    {% endfor %}
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for key,val in guest_alcohol.items %}
+                                    <tr>
+                                        <th scope="row">
+                                            {{ forloop.counter }}
+                                        </th>
+                                        <th>
+                                            {{ key.name.capitalize }} {{ key.family.capitalize }}
+                                        </th>
+                                        {% if key.alcohol is None %}
+                                            {% for a in alcohol %}
+                                                <th>-</th>
+                                            {% endfor %}
+                                        {% else %}
+                                            {% for a in alcohol %}
+                                                {% if a in val %}
+                                                    <th>1</th>
+                                                {% else %}
+                                                    <th>-</th>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td scope="row"></td>
+                                    <td></td>
+                                    {% for key, value in alcohol.items %}
+                                        <td>{{ value }}</td>
+                                    {% endfor %}
+                                </tr>
+                                </tfoot>
+                            </table>
+
+                        </div>
                     </div>
                 </div>
             </div>
