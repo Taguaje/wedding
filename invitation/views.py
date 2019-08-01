@@ -263,7 +263,7 @@ def new_guest(request):
 
 
 def update_publications(request):
-    data = urllib.request.urlopen('https://phantombuster.s3.amazonaws.com/ab7S2VXXDdg/E6zhefKgZUqzYAI8Roxhyg/result.json').read()
+    data = urllib.request.urlopen('https://phantombuster.s3.amazonaws.com/ab7S2VXXDdg/MZMgdIBTqKkMYMRHqlnxyw/result.json').read()
     a = data.decode('utf-8')
     publications = json.loads(a)
     need_refresh = True
@@ -278,7 +278,7 @@ def update_publications(request):
 
 
 def update_publications_auto():
-    data = urllib.request.urlopen('https://phantombuster.s3.amazonaws.com/ab7S2VXXDdg/E6zhefKgZUqzYAI8Roxhyg/result.json').read()
+    data = urllib.request.urlopen('https://phantombuster.s3.amazonaws.com/ab7S2VXXDdg/MZMgdIBTqKkMYMRHqlnxyw/result.json').read()
     a = data.decode('utf-8')
     publications = json.loads(a)
     need_refresh = True
