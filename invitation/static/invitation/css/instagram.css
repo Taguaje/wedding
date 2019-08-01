@@ -3,7 +3,7 @@
      display: inline-block!important;
      width:99.375%;
      width:-webkit-calc(100% - 2px);
-     width:calc(100% - 2px);
+     width: 300px !important;
      max-width:90%!important;
      min-width:90%!important;
      margin: 2px !important;
@@ -13,6 +13,7 @@
 .instagram-media{
      max-width:45%!important;
      min-width:45%!important;
+     width: 300px !important;
 }
 }
 
@@ -20,6 +21,7 @@
 .instagram-media{
      max-width:31%!important;
      min-width:31%!important;
+     width: 300px !important;
 }
 }
 
