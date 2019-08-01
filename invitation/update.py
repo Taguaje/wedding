@@ -1,0 +1,2 @@
+from invitation.views import update_publications_auto
+update_publications_auto()

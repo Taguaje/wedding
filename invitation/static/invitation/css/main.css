@@ -233,7 +233,7 @@ img{
     color: white;
 }
 
-#organizators{
+#organizators, #photos{
     background: url("/static/invitation/jpg/seamless.png");
     padding-top: 50px;
     font-family: "Comfortaa", serif;

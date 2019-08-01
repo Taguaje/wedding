@@ -1,20 +1,23 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Guest, Dishes, Alcohol, Menu
+from .models import Guest, Dishes, Alcohol, Menu, Publications
 from .forms import PhotoForm
 from django.core.mail import EmailMessage
 from django.core import mail
 from django.contrib.auth.models import User
 from django.db.models import Q
+import urllib.request
+import json
 
 
 def index(request):
     organizators = Guest.objects.filter(type=4)
+    posts = Publications.objects.all()
     if request.user.is_authenticated:
         guest = Guest.objects.get(user=request.user)
-        data = {'organizators': organizators, 'guest': guest}
+        data = {'organizators': organizators, 'guest': guest, 'posts': posts}
     else:
-        data = {'organizators': organizators}
+        data = {'organizators': organizators, 'posts' : posts}
     return render(request, 'invitation/home.html', data)
 
 
@@ -258,3 +261,31 @@ def new_guest(request):
         guest.save()
         return HttpResponse('ok', content_type='text/html')
 
+
+def update_publications(request):
+    data = urllib.request.urlopen('https://phantombuster.s3.amazonaws.com/ab7S2VXXDdg/E6zhefKgZUqzYAI8Roxhyg/result.json').read()
+    a = data.decode('utf-8')
+    publications = json.loads(a)
+    need_refresh = True
+    for p in publications:
+        if need_refresh:
+            Publications.objects.all().delete()
+            need_refresh = False
+        new_post = Publications()
+        new_post.postUrl = p['postUrl']
+        new_post.save()
+    return HttpResponse('ok', content_type='text/html')
+
+
+def update_publications_auto():
+    data = urllib.request.urlopen('https://phantombuster.s3.amazonaws.com/ab7S2VXXDdg/E6zhefKgZUqzYAI8Roxhyg/result.json').read()
+    a = data.decode('utf-8')
+    publications = json.loads(a)
+    need_refresh = True
+    for p in publications:
+        if need_refresh:
+            Publications.objects.all().delete()
+            need_refresh = False
+        new_post = Publications()
+        new_post.postUrl = p['postUrl']
+        new_post.save()

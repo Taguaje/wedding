@@ -363,6 +363,7 @@
                         </div>
                         <div class="col-xl-10 col-lg-10 col-12 p-3">
                             <button class="profile-button m-auto" type="button" data-toggle="modal" data-target="#newGuest">НОВЫЙ ГОСТЬ</button>
+                            <button class="profile-button m-auto" type="button" onclick="update_publications();">ОБНОВИТЬ INST</button>
                         </div>
                     </div>
                     <!-- Modal -->
@@ -764,6 +765,10 @@
 
     function confirm() {
         $.post('/invite/confirm_invite/', {isComing: !toggleNumber}, OnSuccess)
+    }
+
+    function update_publications() {
+        $.post('/invite/update_publications/', {}, OnSuccess)
     }
 
     function confirmTransfer() {

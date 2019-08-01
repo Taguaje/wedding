@@ -52,3 +52,7 @@ class Guest(models.Model):
 
     def __str__(self):
         return self.name + " " + self.family
+
+
+class Publications(models.Model):
+    postUrl = models.CharField(max_length=300)
