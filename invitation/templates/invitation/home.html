@@ -31,7 +31,7 @@
     <script src="{% static "invitation/js/loader.js" %}"></script>
     <script src="{% static "invitation/js/flipclock.js" %}"></script>
     <script src="{% static "bootstrap/js/bootstrap.js" %}"></script>
-    <script async src="//www.instagram.com/embed.js"></script>
+    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
 </head>
 <body data-spy="scroll" data-target="#navbarSupportedContent">
 <div id="info" class="text-center page-info container-fluid p-0">
@@ -382,9 +382,7 @@
     <div class="col-12 text-center mt-2 mb-3">
         <h1 class="title-small">Фото</h1>
     </div>
-    {% for p in posts %}
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="{{ p.postUrl }}" data-instgrm-version="12"></blockquote>
-    {% endfor %}
+    <div class="elfsight-app-90bbd0fb-9c54-434a-9187-0b2d95887a7b"></div>
 </div>
 
 <div class="row m-0" id="footer">
@@ -399,7 +397,7 @@
         // Set some date in the past. In this case, it's always been since Jan 1
         var futureDate  = new Date(2019, 7, 2, 16, 0, 0);
         // Calculate the difference in seconds between the future and current date
-        var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
+        var diff = Math.max(futureDate.getTime() / 1000 - currentDate.getTime() / 1000, 0);
         // Instantiate a coutdown FlipClock
         clock = $('.my-clock').FlipClock(diff, {
             clockFace: 'DailyCounter',

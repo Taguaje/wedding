@@ -241,6 +241,10 @@ img{
     max-width: 100%;
 }
 
+#photos{
+    padding-bottom: 50px !important;
+}
+
 .title-small{
     font-family: Caveat;
     font-size: 2.75rem;
