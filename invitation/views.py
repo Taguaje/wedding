@@ -27,6 +27,7 @@ def photos(request, page):
     if not request.user.is_authenticated:
         return redirect('index')
     files = os.listdir(settings.BASE_DIR + '/invitation/static/invitation/page ' + page)
+    files.sort()
     first_column = {}
     second_column = {}
     third_column = {}
