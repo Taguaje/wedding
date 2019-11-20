@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Свадьба Влада и Даши</title>
+    {% load static %}
+    {% load account %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="{% static "invitation/jpg/favicon.ico" %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.css" %}">
+    <link rel="stylesheet" href="{% static "invitation/css/photos.css" %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Marck+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CClicker+Script" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Caveat|Source+Sans+Pro&amp;subset=cyrillic" rel="stylesheet">
+
+
+    <script src="{% static "invitation/js/jquery-3.4.1.min.js" %}"></script>
+    <script src="{% static "invitation/js/popper.min.js" %}"></script>
+    <script src="{% static "bootstrap/js/bootstrap.js" %}"></script>
+
+
+</head>
+<body>
+<div class="container-fluid p-5">
+    <h1 class="title">Как это было</h1>
+    <div class="row mb-2">
+        <div class="text-entry col-12">Привет, мы рады что ты был с нами в этот день! :) Наконец-то мы можем вспомнить как это было, благодоря замечательным фотографиям, который сделал для нас Александр Руденький. Скачать все фото в исходном качестве можно нажав на кнопку "СКАЧАТЬ", размер файла 8,7 гб. Фотографии ниже сделаны для быстрого просмотра, поэтому качество их хуже чем в архиве. Чтобы посмотреть картинку поближе и скачать, нажмите на нее.</div>
+        <div class="col-12 text-center ">
+            <a href="https://drive.google.com/open?id=1ZWj5ybjdVaAptiwZ2qvHFveslMUuHJJf" target="_blank"><button class="rsvp-main m-1" type="button">СКАЧАТЬ ВСЕ</button></a>
+            <button class="rsvp-main m-1" type="button" onclick="location.href='/invite'">НА ГЛАВНУЮ</button>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <nav aria-label="...">
+            <ul class="pagination pagination-sm">
+                {% for i,k in pages.items %}
+                    {% if i == currentPage %}
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">{{ i }}</a>
+                        </li>
+                    {% else %}
+                        <li class="page-item"><a class="page-link" href="{{ k }}">{{ i }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+    <div class="row m-auto">
+        <div class="column">
+            {% for id,f in first.items %}
+
+                <img src="{% static f %}" onclick="showPhoto('{{ id }}')">
+
+            {% endfor %}
+        </div>
+        <div class="column">
+            {% for id,f in second.items %}
+
+                <img src="{% static f %}" onclick="showPhoto('{{ id }}')">
+
+            {% endfor %}
+        </div>
+        <div class="column">
+            {% for id,f in third.items %}
+
+                <img src="{% static f %}" onclick="showPhoto('{{ id }}')">
+
+            {% endfor %}
+        </div>
+        <div class="column">
+            {% for id,f in forth.items %}
+
+                <img src="{% static f %}" onclick="showPhoto('{{ id }}')">
+
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5">
+        <nav aria-label="...">
+            <ul class="pagination pagination-sm">
+                {% for i,k in pages.items %}
+                    {% if i == currentPage %}
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">{{ i }}</a>
+                        </li>
+                    {% else %}
+                        <li class="page-item"><a class="page-link" href="{{ k }}">{{ i }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+</div>
+</body>
+
+{% for id,f in first.items %}
+<div class="modal fade" id="{{ id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <img src="{% static f %}" class="img-fluid img-modal">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+        <a href="{% static f %}" download=""><button type="button" class="btn btn-primary">Скачать</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+{% for id,f in second.items %}
+<div class="modal fade" id="{{ id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <img src="{% static f %}" class="img-fluid img-modal">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+        <a href="{% static f %}" download=""><button type="button" class="btn btn-primary">Скачать</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+{% for id,f in third.items %}
+<div class="modal fade" id="{{ id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <img src="{% static f %}" class="img-fluid img-modal">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+        <a href="{% static f %}" download=""><button type="button" class="btn btn-primary">Скачать</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+{% for id,f in forth.items %}
+<div class="modal fade" id="{{ id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <img src="{% static f %}" class="img-fluid img-modal">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+        <a href="{% static f %}" download=""><button type="button" class="btn btn-primary">Скачать</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+
+<script type="text/javascript">
+
+    function Go(i) {
+        location.href('/invite/photos/' + i + '/')
+    }
+
+    function showPhoto(f) {
+        $("#"+ f).modal('show');
+    }
+
+      // using jQuery
+    function getCookie(name) {
+        cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            cookies = document.cookie.split(';');
+            for (i = 0; i < cookies.length; i++) {
+                cookie = jQuery.trim(cookies[i]);
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    csrftoken = getCookie('csrftoken');
+
+    function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    $.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+    });
+
+
+</script>
+</html>

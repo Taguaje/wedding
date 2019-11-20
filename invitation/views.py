@@ -8,6 +8,8 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 import urllib.request
 import json
+import os
+from wedding import settings
 
 
 def index(request):
@@ -19,6 +21,39 @@ def index(request):
     else:
         data = {'organizators': organizators, 'posts' : posts}
     return render(request, 'invitation/home.html', data)
+
+
+def photos(request, page):
+    if not request.user.is_authenticated:
+        return redirect('index')
+    files = os.listdir(settings.BASE_DIR + '\invitation\static\invitation\page ' + page)
+    first_column = {}
+    second_column = {}
+    third_column = {}
+    forth_column = {}
+    staticpath = 'invitation/page ' + page + '/'
+    pages = {}
+    id = 1;
+    for i in range(14)[1:14]:
+        pages.update({str(i): '/invite/photos/' + str(i) + '/'})
+    i = 1
+    for f in files:
+        if i == 1:
+            first_column.update({ id: staticpath + f})
+        elif i == 2:
+            second_column.update({ id: staticpath + f})
+        elif i == 3:
+            third_column.update({ id: staticpath + f})
+        elif i == 4:
+            forth_column.update({ id: staticpath + f})
+        if i == 4:
+            i = 1
+        else:
+            i += 1
+        id += 1
+
+    data = {'first': first_column, 'second': second_column, 'third': third_column, 'forth': forth_column, 'pages': pages, 'currentPage': page}
+    return render(request, 'invitation/photos.html', data)
 
 
 def profile(request):

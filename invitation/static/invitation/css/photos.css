@@ -1,0 +1,92 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+.pagination-sm .page-link {
+    font-size: calc(0.3em + 1vw) !important;
+}
+
+.img-modal{
+  max-height: 85vh;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+a:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.text-entry{
+   font-family: "Comfortaa";
+}
+
+.rsvp-main{
+    background-color: #fbbdc2;
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    font-weight: 600;
+    font-family: "Comfortaa", serif;
+    font-size: calc(0.5em + 0.4vw);
+    margin-top: 10px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.page-link{
+  color: #fbbdc2 !important;
+}
+
+.page-link{
+  color: #fbbdc2 !important;
+}
+
+.page-item.disabled .page-link{
+  color: #6c757d !important;
+}
+
+.title {
+    font-size: 2.75rem;
+    text-align: center;
+    font-family: Caveat, serif;
+}
+
+img:hover{
+  cursor: pointer;
+}

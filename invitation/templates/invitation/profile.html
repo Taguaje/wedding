@@ -96,6 +96,18 @@
             <div class="right col-lg-9">
                 <div class="row text-center mt-4 bg-light profile-block">
                     <div class="profile-img-block col-xl-2 col-lg-2 col-md-12 p-0">
+                        <img class="img-fluid" src="{% static  '/invitation/jpg/IMG_0281.jpg'%}">
+                    </div>
+
+                    <div id = "textConfirm" class="profile-text-block col-xl-7 col-md-12 p-0 pl-lg-3">
+                        <span class="question-title">Долгожданные фото, как это было!</span>
+                    </div>
+                    <div class="row col-xl col-md-12 m-2 justify-content-center justify-content-lg-end">
+                        <button class="profile-button m-1" type="button" onclick="location.href='/invite/photos/1/'">ПОСМОТРЕТЬ</button>
+                    </div>
+                </div>
+                <div class="row text-center mt-4 bg-light profile-block">
+                    <div class="profile-img-block col-xl-2 col-lg-2 col-md-12 p-0">
                         <img class="img-fluid" src="{% static  '/invitation/jpg/sweet-ice-cream-photography-170766-unsplash.jpg'%}">
                     </div>
                     {% if guest.confirm %}
